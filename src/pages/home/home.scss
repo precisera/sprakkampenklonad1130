@@ -1,3 +1,46 @@
 page-home {
+	ion-content{
+		background: linear-gradient(to top, #0a5c84, #1675a3);
+	}
+	p{
+		color:#a2e2df;
+		size:13px;
+		font-family: Cambay;
+	}
+	ion-card{
+		height: 56px;
+		border-radius: 5px !important;
+	}
+	ion-card-content{
+		padding: 0px 0px 0px !important;
+	}
+	.subtext
+	{
+		
+	  font-family: Cambay;
+	  font-size: 14px;
+	  text-align: left;
+	  color: #ffffff;
+	}
+	.menu{
+		 font-family: Cambay;
+	  font-size: 14px;
+	  color: #ffffff;
+	  text-align: left;
+	  padding-left: 15px;
+		padding-top: 8px;
+	}
+
+	.buttontext{
+
+			
+	  font-family: OpenSans;
+	  font-size: 17px;
+	  font-weight: 600;
+	  text-align: left;
+	  color: #2c531a;
+  
+
+	}
 
 }

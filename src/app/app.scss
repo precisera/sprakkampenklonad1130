@@ -14,3 +14,25 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+@font-face {
+  font-family: 'Cambay';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Cambay-Regular'), local('Cambay-Regular'), url(../assets/fonts/Cambay-Regular.ttf) format('woff2');
+}
+
+@font-face {
+  font-family: 'Cambay-Bold';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Cambay-Bold'), local('Cambay-Bold'), url(../assets/fonts/Cambay-Bold.ttf) format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('OpenSans-Regular'), local('OpenSans-Regular'), url(../assets/fonts/OpenSans-Regular.ttf) format('woff2');
+}

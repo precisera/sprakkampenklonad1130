@@ -1,18 +1,65 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content><div>
+  <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+          <div class="menu">Meny</div>
+    </button>
+  </div>
+    <div padding text-center style="padding-top: 18px;padding-bottom: 43.5px;">
+      <img src="../assets/image/logo.png">
+      <p text-center>En app för alla vetgiriga.<br>
+      Unga & gamla. Infödda & nysvenskar.</p>
+    </div>
+      <ion-card color="lightgreygreen">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+      <ion-card-content>
+        <ion-grid>
+            <ion-row align-items-center>
+              <ion-col>
+              </ion-col>
+              <ion-col col-2>
+                <img src="../assets/image/play.png" style="width:31px">
+              </ion-col>
+              <ion-col col-9>
+                <div class="buttontext">Spela</div>
+                <div class="subtext">Tävla mot andra i språkmatcher</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        
+      </ion-card-content>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    </ion-card>
+    <ion-card color="lightgreyblue">
+
+      <ion-card-content tappable>
+        <ion-grid>
+            <ion-row align-items-center>
+              <ion-col>
+              </ion-col>
+              <ion-col col-2>
+                <img src="../assets/image/brain.png" style="width:31px">
+              </ion-col>
+              <ion-col col-9>
+                <div class="buttontext">Öva</div>
+                <div class="subtext">Träna olika språkförmågor i din takt</div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        
+      </ion-card-content>
+
+    </ion-card>
+     
 </ion-content>
+<ion-footer text-center>
+  <p>En del av synonymer.se</p>
+  </ion-footer>
