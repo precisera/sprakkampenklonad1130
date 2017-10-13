@@ -10,7 +10,7 @@
 
 
 <ion-content padding>
-    <button ion-button clear (click)="popBack()">
+    <button ion-button clear (click)="popBack()" style="color:aquamarine ">
         <ion-icon name="back"></ion-icon> back
       </button>
       
@@ -23,7 +23,7 @@
 
       </div>
      <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 22px;" />
-     <ion-card color="lightgreygreen">
+     <ion-card color="spelaColor">
         
               <ion-card-content tappable>
                 <ion-grid>
@@ -44,4 +44,40 @@
               </ion-card-content>
             </ion-card>
         
+
+            <ion-list no-lines>
+                <div>
+                <ion-item>
+                  <ion-label>Select All</ion-label>
+                  <ion-checkbox [(ngModel)]="SelectAll"></ion-checkbox>
+                
+                </ion-item>
+                <span style="background-color:#ffff ; display:block" >dsffdhgfdhgc</span>
+                
+                
+              </div>
+                <ion-item>
+                  <ion-label>Synonymer</ion-label>
+                  <ion-checkbox [(ngModel)]="Synonymer"></ion-checkbox>
+                
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>Metaforer</ion-label>
+                  <ion-checkbox [(ngModel)]="Metaforer"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Grammatik</ion-label>
+                  <ion-checkbox [(ngModel)]="Grammatik"></ion-checkbox>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Dialekt</ion-label>
+                  <ion-checkbox [(ngModel)]="Dialekt"></ion-checkbox>
+                  <ion-label>Dialdffffffffffffffffekt</ion-label>
+                  
+                </ion-item>
+                
+              
+              </ion-list>
 </ion-content>
