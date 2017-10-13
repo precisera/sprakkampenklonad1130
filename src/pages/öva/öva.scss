@@ -31,8 +31,59 @@ page-ova {
 				border-radius: 5px !important;
 			}
 
-			
-			
+			.Synonymer {
+				width: 204px;
+				height: 28px;
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b;
+				color: var(--light-grey-green);
+			  }
+
+			.md-Synonymer{
+				// background-color: #1675a3;
+				// background-color: var(--nice-blue);
+
+				width: 204px;
+				height: 28px;
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b !important;
+				color: var(--light-grey-green);
+			}
+			.du-har-vat-denna-ka {
+				width: 269px;
+				height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: #afdc9b !important;
+				color: var(--light-grey-green);
+			  }
+
+			  .Metaforer {
+				width: 204px;
+				height: 28px;
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #ffffff;
+			  }
+			// checkbox-ios-background-color-off 	
+
+			.md-button{
+				width: 334px;
+				height: 56px;
+				border-radius: 5px;
+				background-color: #afdc9b;
+				background-color: var(--light-grey-green);
+				box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+			}
 			
 }
 

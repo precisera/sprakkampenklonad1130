@@ -3,9 +3,17 @@
 
 <ion-content padding>
         
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
+    <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
+    <button ion-button clear (click)="popBack()" style="color: white;
+    width: 51px;
+    font-family: Cambay;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    top: -8px;
+    left: 3px;" > Back
+  </button>
+  
       <!-- <div>
         <ion-row>
           <ion-col col-1>
@@ -20,7 +28,7 @@
       </div> -->
 
       <div style="margin-top: 13px;margin-left: 17px;">
-          <img src="../assets/image/spelaTrophy.png" style="width:32px;height:49px;  ">
+          <img src="../assets/image/spela.png" style="width:32px;height:49px;  ">
       </div>
       <div style="position: absolute;margin-left: 63px;top: 101px;">
           <h1 style="color:white; font-size:24px;  font-family: Cambay;margin-bottom: 0rem;margin-top: 0.7rem;margin-left: 0px;"> Spela </h1>

@@ -22,4 +22,8 @@ export class SpelaPage {
     console.log('ionViewDidLoad SpelaPage');
   }
 
+
+  popBack(){
+    this.navCtrl.pop()
+    }
 }

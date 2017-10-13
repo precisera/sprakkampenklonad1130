@@ -2,4 +2,24 @@ page-your-progress {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3);
 	}
+
+
+
+.Your-Progress	{		
+		margin-left: -63px;
+		width: 155px;
+		height: 39px;
+		font-family: Cambay;
+		font-size: 24px;
+		font-weight: bold;
+		color: #ffffff;
+	}
+
+	.md-line{
+			border-top: dotted 2px;	
+			position: relative;
+			color: #328eba;
+			// margin-top: 48px;
+			margin-top: -1px;
+	}
 }
