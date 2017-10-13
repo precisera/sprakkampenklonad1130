@@ -1,0 +1,83 @@
+
+<!-- <ion-header>
+
+  <ion-navbar>
+     
+    <ion-title>Öva</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+
+<ion-content padding>
+    <button ion-button clear (click)="popBack()" style="color:aquamarine ">
+        <ion-icon name="back"></ion-icon> back
+      </button>
+      
+      <div style="margin-top: 13px;margin-left: 17px;">
+          <img src="../assets/image/spelaTrophy.png" style="width:32px;height:49px;  ">
+      </div>
+      <div style="position: absolute;margin-left: 63px;top: 101px;">
+          <h1 style="color:white; font-size:24px;  font-family: Cambay;margin-bottom: 0rem;margin-top: 0.7rem;margin-left: 0px;"> Spela </h1>
+          <p style="font-size:16px; font-family: Cambay;margin-top: -6px;">Tävla mot andra i språkmatcher</p>
+
+      </div>
+     <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 22px;" />
+     <ion-card color="spelaColor">
+        
+              <ion-card-content tappable>
+                <ion-grid>
+                    <ion-row align-items-center>
+                      <ion-col>
+        
+                      </ion-col>
+                      <ion-col col-2>
+                        <img src="../assets/image/play.png" style="width:31px">
+                      </ion-col>
+                      <ion-col col-9>
+                        <div class="buttontext" (click)="goToPractice()">Practice from saved cards</div>
+                        <div class="subtext">You have 12 saved cards</div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+              
+              </ion-card-content>
+            </ion-card>
+        
+
+            <ion-list no-lines>
+                <div>
+                <ion-item>
+                  <ion-label>Select All</ion-label>
+                  <ion-checkbox [(ngModel)]="SelectAll"></ion-checkbox>
+                
+                </ion-item>
+                <span style="background-color:#ffff ; display:block" >dsffdhgfdhgc</span>
+                
+                
+              </div>
+                <ion-item>
+                  <ion-label>Synonymer</ion-label>
+                  <ion-checkbox [(ngModel)]="Synonymer"></ion-checkbox>
+                
+                </ion-item>
+              
+                <ion-item>
+                  <ion-label>Metaforer</ion-label>
+                  <ion-checkbox [(ngModel)]="Metaforer"></ion-checkbox>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Grammatik</ion-label>
+                  <ion-checkbox [(ngModel)]="Grammatik"></ion-checkbox>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label>Dialekt</ion-label>
+                  <ion-checkbox [(ngModel)]="Dialekt"></ion-checkbox>
+                  <ion-label>Dialdffffffffffffffffekt</ion-label>
+                  
+                </ion-item>
+                
+              
+              </ion-list>
+</ion-content>
