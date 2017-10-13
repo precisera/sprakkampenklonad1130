@@ -5,34 +5,21 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-<<<<<<< HEAD
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-=======
 import { SpelaPage } from '../pages/spela/spela';
-// import { OvaPage } from '../pages/ova/ova';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ÖvaPage } from '../pages/\u00F6va/\u00F6va';
+import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
->>>>>>> 3eca691b148a32973b1ba6a2c5e95e7b5e0fed38
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
-    ListPage
-=======
     ListPage,
-    ÖvaPage,
+    OvaPage,
     SpelaPage,
     YourProgressPage,
-    
-    
->>>>>>> 3eca691b148a32973b1ba6a2c5e95e7b5e0fed38
+
   ],
   imports: [
     BrowserModule,
@@ -42,14 +29,10 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
   entryComponents: [
     MyApp,
     HomePage,
-<<<<<<< HEAD
-    ListPage
-=======
     ListPage,
     YourProgressPage,
     SpelaPage,
-    ÖvaPage
->>>>>>> 3eca691b148a32973b1ba6a2c5e95e7b5e0fed38
+    OvaPage
   ],
   providers: [
     StatusBar,
