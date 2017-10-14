@@ -1,20 +1,74 @@
 
-<!-- <ion-header> -->
-<!-- 
-  <ion-navbar>
-      
-    <ion-title>YourProgress</ion-title>
-  </ion-navbar> -->
 
-<!-- </ion-header> -->
-
-<ion-content padding>
+<ion-content no-padding>
+  <div>
     <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
+            <div class="menu">Meny</div>
       </button>
-      <div class="Your-Progress"><h1> Your Progress </h1>
+ </div>
+      <div class="Your-Progress"><h1 style="margin-left: -46px;"> Your Progress </h1>
 
       </div>
      <hr class="md-line" />
-      
+
+     <ion-card class="md-Rectangle">
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-5>
+               <img class="md-versus" src="../assets/image/versus.png"  >
+               <p class="md-title" style="margin-left: 12px;"> 1 Mot 1</p>
+            </ion-col>
+            <ion-col>
+                <p class ="md-para"> Vinster: 26</p>
+                <p class ="md-para">Förluster: 31</p>
+                <p class ="md-para"> Oavgjorda matcher: 2</p>
+                <p class ="md-para"> Sammanlagt: 59   </p>
+            </ion-col>
+            
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="md-Rectangle">
+       
+          <ion-card-content style="padding-left: 9px;">
+            <ion-row>
+              <ion-col col-5>
+                 <img src="../assets/image/Trophy.png" class="md-trophy">
+               <p class="md-title">Veckokampen</p>
+               
+              </ion-col>
+              <ion-col>
+                  <p class ="md-para">Deltagit i: 23 </p>
+                  <p class ="md-para"> Bästa plats: Tvåa</p>
+                  <p class ="md-para"> Antal 1p svarade: 39 </p>
+                  <p class ="md-para"> Antal 2p svarade: 31</p>
+                  <p class ="md-para"> Antal 3p svarade: 19</p>
+              </ion-col>
+              
+            </ion-row>
+          </ion-card-content>
+
+        </ion-card>
+
+        <ion-card class="md-Rectangle">
+            <ion-card-content>
+              <ion-row>
+                <ion-col col-5>
+                   <img class="md-question" src="../assets/image/question.png" >
+                    <p class="md-title">Frågor 1p</p>
+               
+                </ion-col>
+                <ion-col>
+                  <p class ="md-para">Antal 3p svarade: 19 </p>
+                  <p class ="md-para"> korrekta svar: 211</p>
+                  <p class ="md-para"> Felaktiga svar: 89 </p>
+                  <p class ="md-para">Sparade frågor: 18 </p>
+                </ion-col>
+                
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+       
 </ion-content>
