@@ -1,11 +1,4 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header> -->
+<!-- FEEDBACK PAGE -->
 
 <ion-content>
     <div>
@@ -15,14 +8,22 @@
         </button>
     </div>
     
-        <h1>Tyck till om Språkkampen</h1>
-        <p>Tyck till om Språkkampen</p>
+        <h1 class="Tyck-till-om-Sprkka ">Tyck till om Språkkampen</h1>
+        <p class="Vad-tycker-du-om-Va">Tyck till om Språkkampen</p>
         
-        <ion-label>Din synpunkt</ion-label>
-    <ion-item>
-      <ion-textarea ></ion-textarea>
-    </ion-item>
-    <ion-item>
-        <ion-textarea ></ion-textarea>
-      </ion-item>
+        <ion-label class="Din-synpunkt">Din synpunkt</ion-label>
+      
+					<textarea name='comment' id='comment'  [(ngModel)]="comment" class="cl-comment">
+					</textarea><br>
+		
+		
+        <p class="Din-mailadress-friv">Din mailadress (frivilligt)</p>
+        
+        <textarea name='secondComment' id='secondComment'  [(ngModel)]="secondComment" class="cl-secondComment">
+        </textarea><br>
+
+
+        	<button (click)="saveComment()" type="submit" class="Submit-button" ion-button outline>
+					Submit
+				</button>
 </ion-content>

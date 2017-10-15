@@ -10,4 +10,80 @@ page-list {
 	 padding-left: 15px;
 	   padding-top: 8px;
    }
+   .Tyck-till-om-Sprkka {
+	width: 305px;
+	height: 36px;
+	font-family: Cambay;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1.5;
+	text-align: center;
+	color: #ffffff;
+  }
+
+  .Vad-tycker-du-om-Va {
+	// width: 334px;
+	margin-left: 11px;
+	width: 300px;
+	height: 24px;
+	font-family: Cambay;
+	font-size: 18px;
+	line-height: 1.33;
+	text-align: center;
+	color: #ffffff;
+  }
+
+  .cl-comment {
+	// width: 334px;
+	margin-left: 11px;
+	width: 300px;
+	height: 215px;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.3) !important;
+	box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	border: solid 1px #ffffff;
+  }
+
+  .cl-secondComment{
+	// width: 334px;
+	margin-left: 11px;
+	width: 300px;
+	height: 56px;
+
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.3);
+	box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	border: solid 1px #ffffff;
+  }
+
+  .Submit-button{
+	// width: 334px;
+	margin-left: 11px;
+	width: 300px;
+	height: 56px;
+	border-radius: 5px;
+	background-color: #afdc9b !important;
+	background-color: var(--light-grey-green);
+	box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5) !important;
+  }
+
+  .Din-synpunkt {
+	width: 99px;
+	height: 22px;
+	font-family: OpenSans;
+	font-size: 16px;
+	text-align: left;
+	color: #ffffff;
+	margin-left: 11px;
+  }
+
+  .Din-mailadress-friv {
+	width: 262px;
+	height: 22px;
+	font-family: OpenSans;
+	font-size: 16px;
+	text-align: left;
+	margin-left: 11px;
+	color: #ffffff;
+  }  
 }
