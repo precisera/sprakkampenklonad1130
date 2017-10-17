@@ -9,12 +9,11 @@ import { HomePage } from '../home/home';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-ova',
-  templateUrl: 'öva.html',
+  templateUrl: 'ova.html',
 })
-export class ÖvaPage {
+export class OvaPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -2,12 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SpelaPage } from '../pages/spela/spela';
-import { ÖvaPage } from '../pages/\u00F6va/\u00F6va';
+import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -24,12 +24,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Spela', component: SpelaPage },
-      { title: 'Öva', component: ÖvaPage },
-      { title: 'Your Progress', component: YourProgressPage },
-      
       { title: 'Home', component: HomePage },
+      { title: 'List', component: ListPage },
+      { title: 'Spela', component: SpelaPage },
+      { title: 'Öva', component: OvaPage },
+      { title: 'Your Progress', component: YourProgressPage },
       { title: 'Feedback', component: ListPage }
+
     ];
 
   }

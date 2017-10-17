@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SpelaPage } from '../spela/spela';
-import { ÖvaPage } from '../\u00F6va/\u00F6va';
+import { OvaPage } from '../ova/ova';
 
 @Component({
   selector: 'page-home',
@@ -18,6 +18,7 @@ export class HomePage {
     this.navCtrl.push(SpelaPage);
   }
   goToOva(){
-    this.navCtrl.push(ÖvaPage)
+    this.navCtrl.push(OvaPage)
   }
+
 }

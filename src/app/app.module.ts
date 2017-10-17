@@ -6,11 +6,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SpelaPage } from '../pages/spela/spela';
-// import { OvaPage } from '../pages/ova/ova';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ÖvaPage } from '../pages/\u00F6va/\u00F6va';
+import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
 
 @NgModule({
@@ -18,11 +16,10 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
     MyApp,
     HomePage,
     ListPage,
-    ÖvaPage,
+    OvaPage,
     SpelaPage,
     YourProgressPage,
-    
-    
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +32,7 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
     ListPage,
     YourProgressPage,
     SpelaPage,
-    ÖvaPage
+    OvaPage
   ],
   providers: [
     StatusBar,
