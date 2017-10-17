@@ -51,8 +51,8 @@
         <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
           <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
         </ion-col>
-        <ion-col style="margin-top: 23px;">
-            <div class="buttontext" style="font-size:24px">Veckokampen</div>
+        <ion-col style="margin-top: 23px;" (click)="goToVeckokampen()">
+            <div class="buttontext" style="font-size:24px" >Veckokampen</div>
             <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
           </ion-col>
       
@@ -80,7 +80,7 @@
                         
                         height: 42px;">
                       </ion-col>
-                      <ion-col style="margin-top: 23px;margin-left: 23px;">
+                      <ion-col style="margin-top: 23px;margin-left: 23px;" (click)="goToVersus()">
                         <div class="buttontext">1 Mot 1</div>
                         <div class="subtext">15 frågor. Du möter en slumpmässig motståndare på samma nivå.</div>
                       </ion-col>
