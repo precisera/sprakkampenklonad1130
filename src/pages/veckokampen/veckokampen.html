@@ -1,24 +1,34 @@
-<!--
-  Generated template for the VeckokampenPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>Veckokampen</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
-
+  
 
 <ion-content padding>
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    
+  
+       <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
+       <button ion-button clear (click)="popBack()" class="back" > Back
+     </button>
+     
+     <div style="margin-top: 13px;margin-left: 17px;">
+         <img src="../assets/image/trophy.png" class="trophy">
+     </div>
+     <div style="position: absolute;margin-left: 63px;top: 101px;">
+         <h1 class="Veckokampen"> Veckokampen </h1>
+         <p class="fragor">25 frågor. Olika tema varje vecka. Alla mot alla.</p>
+
+     </div>
+    <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 35px;" />
+
+    <p class="This-week-theme-is">This week theme is</p>
+
+    <h1 class="History">History</h1>
+
+    <p class="Total-Question">Total Question: 25</p>
+
+    <p class="Time-Estimate">Time Estimate: 3:00</p>
+
+    <p class="Fragorna">Frågorna är av olika svårighetsgrader och kategorier. Vinner gör den med flest poäng. Vid lika poäng är tiden avgörande.</p>
+
+    <button (click)="saveButton()" type="submit" class="Save-button" ion-button outline>
+        <p class="inner-text">Save</p>
+    </button>
+
 </ion-content>

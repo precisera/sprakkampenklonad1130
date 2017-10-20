@@ -2,27 +2,21 @@
 
 
 <ion-content padding>
-        <button ion-button clear (click)="popBack()" style="color:white ">
-        <ion-icon name="arrow-back"></ion-icon> <b>Back</b>
-      </button>
-  
-      <div style="width:334px">
-      <ion-grid>
-        <ion-row align-items-center>
-          <ion-col col-1>
-          </ion-col>
-          <ion-col col-2>
-              <img src="../assets/image/play.png" style="width:32px;height:49px;">
-          </ion-col>
-          <ion-col>
-              <p class="title"> Spela </p>
-          <p class="subtitle">Tävla mot andra i språkmatcher</p>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
-      <!-- <div>
         
+    <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
+    <button ion-button clear (click)="popBack()" style="color: white;
+    width: 51px;
+    font-family: Cambay;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    top: -8px;
+    left: 3px;" > Back
+    </button>
+
+
+      <div style="margin-top: 13px;margin-left: 17px;">
+          <img src="../assets/image/spela.png" style="width:32px;height:49px;  ">
       </div>
       <div>
         
@@ -37,13 +31,13 @@
           
       <ion-grid>
         <ion-row align-items-center>
-          
-          <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
-            <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
-          </ion-col>
-          <ion-col style="margin-top: 23px;margin-right: 5px;">
-              <div class="buttontext" style="font-size:24px">Veckokampen</div>
-              <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
+
+        <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
+          <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
+        </ion-col>
+        <ion-col style="margin-top: 23px;" (click)="goToVeckokampen()">
+            <div class="buttontext" style="font-size:24px" >Veckokampen</div>
+            <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
           </ion-col>
       
         </ion-row>
@@ -65,7 +59,7 @@
                         
                         height: 42px;">
                       </ion-col>
-                      <ion-col style="margin-top: 23px;">
+                      <ion-col style="margin-top: 23px;margin-left: 23px;" (click)="goToVersus()">
                         <div class="buttontext">1 Mot 1</div>
                         <div class="subtext">15 frågor. Du möter en slumpmässig motståndare på samma nivå.</div>
                       </ion-col>

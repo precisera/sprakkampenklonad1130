@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
+import { VeckokampenPage } from '../veckokampen/veckokampen';
+import { VersusPage } from '../versus/versus';
 
-/**
- * Generated class for the SpelaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-spela',
@@ -24,4 +21,11 @@ export class SpelaPage {
   	this.navCtrl.pop();
   }
 
+    goToVeckokampen(){
+      this.navCtrl.push(VeckokampenPage);
+    }
+
+    goToVersus(){
+      this.navCtrl.push(VersusPage)
+    }
 }
