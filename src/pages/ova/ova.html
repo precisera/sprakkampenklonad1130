@@ -1,46 +1,30 @@
-
-
 <ion-content padding>
    
-        <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
-        <button ion-button clear (click)="popBack()" style="color: white;
-        width: 51px;
-        font-family: Cambay;
-        font-size: 14px;
-        font-weight: bold;
-        text-align: left;
-        top: -8px;
-        left: 3px;" > Back
-      </button>
+       <ion-buttons left>
+            <button ion-button clear color="white" (click)="popBack()">
+                <ion-icon style="font-size: 4.2rem !important;" name="arrow-back"></ion-icon> <p class="backbutton">Back</p>
+            </button>
+        </ion-buttons>
       
-      <div style="margin-top: 13px;margin-left: 17px;   width: 39.5px;
-      height: 44.8px;">
-          <img src="../assets/image/brain.png" style="width: 39.5px; height: 44.8px;  ">
-      </div>
-      <div style="position: absolute;margin-left: 63px;top: 101px;">
-          <h1 style="margin-bottom: 0rem;
-                         margin-top: -0.7rem;
-                         margin-left: 21px;
-                          width: 44px;
-                          height: 39px;
-                          font-family: Cambay;
-                          font-size: 24px;
-                          font-weight: bold;
-                         text-align: left;
-                          color: #ffffff;"> Öva </h1>
-          <p style=" width: 202px;
-                     height: 52px;
-                     font-family: Cambay;
-                     font-size: 16px;
-                     text-align: left;
-                     color: #ffffff;
-                     margin-top: -10px;
-                     margin-left: 20px;">Träna olika språkförmågor i din takt
-          
-          </p>
 
-      </div>
-     <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 22px;" />
+      <div style="width:354px">
+      <ion-grid>
+        <ion-row align-items-center>
+          <ion-col col-1>
+          </ion-col>
+          <ion-col col-3>
+              <img src="../assets/image/brain.png" style="width:49.5px;height:54.8px;">
+          </ion-col>
+          <ion-col>
+              <p class="title">Öva</p>
+          <p class="subtitle">Träna olika språkförmågor i din takt</p>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+     </div>
+     
+     <hr style="border-top: dotted 2px;position: relative;color: #328eba;margin-top: 22px;" />
      
 
      <ion-card color="spelaColor">
@@ -70,6 +54,7 @@
               
               </ion-card-content>
             </ion-card>
+            <p>Eller öva på nya frågor från valda kategorie</p>
         
 <div style="margin-left: -14px;margin-right: -15px;">
             <ion-list no-lines>

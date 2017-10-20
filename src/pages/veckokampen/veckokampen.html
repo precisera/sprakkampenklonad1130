@@ -1,22 +1,33 @@
-
-  
-
 <ion-content padding>
-  
-       <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
+   <ion-buttons left>
+            <button ion-button clear color="white" (click)="popBack()">
+                <ion-icon style="font-size: 4.2rem !important;" name="arrow-back"></ion-icon> <p class="backbutton">Back</p>
+            </button>
+        </ion-buttons>
+       <!-- <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
        <button ion-button clear (click)="popBack()" class="back" > Back
-     </button>
-     
-     <div style="margin-top: 13px;margin-left: 17px;">
-         <img src="../assets/image/trophy.png" class="trophy">
-     </div>
-     <div style="position: absolute;margin-left: 63px;top: 101px;">
-         <h1 class="Veckokampen"> Veckokampen </h1>
-         <p class="fragor">25 frågor. Olika tema varje vecka. Alla mot alla.</p>
+     </button> -->
+     <!-- <div style="width:334px"> -->
+      <ion-grid>
+        <ion-row align-items-center>
 
-     </div>
-    <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 35px;" />
+          <ion-col col-1>
+          </ion-col>
+          <ion-col col-2>
+              <img src="../assets/image/trophy.png" class="trophy">
+          </ion-col>
+          <ion-col>
+              <p class="Veckokampen"> Veckokampen </p>
+          <p class="fragor">25 frågor. Olika tema varje vecka. Alla mot alla.</p>
+          </ion-col>
+        </ion-row>
 
+      </ion-grid>
+    <!-- </div> -->
+
+   
+    <div padding>
+    <hr style="border-top: dotted 2px;position: relative;color: #328eba;" />
     <p class="This-week-theme-is">This week theme is</p>
 
     <h1 class="History">History</h1>
@@ -26,9 +37,12 @@
     <p class="Time-Estimate">Time Estimate: 3:00</p>
 
     <p class="Fragorna">Frågorna är av olika svårighetsgrader och kategorier. Vinner gör den med flest poäng. Vid lika poäng är tiden avgörande.</p>
+    
 
-    <button (click)="saveButton()" type="submit" class="Save-button" ion-button outline>
-        <p class="inner-text">Save</p>
+    <button ion-button block (click)="saveButton()" type="submit" class="Save-button" ion-button outline>
+        <span class="inner-text">Start!</span>
     </button>
+
+  </div>
 
 </ion-content>

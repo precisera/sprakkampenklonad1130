@@ -21,8 +21,9 @@ export class OvaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ÖvaPage');
   }
+  
   popBack(){
-    this.navCtrl.push(HomePage)
+  this.navCtrl.pop();
   }
 
   goToPractice(){
