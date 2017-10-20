@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the SpelaPage page.
@@ -8,7 +8,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-spela',
   templateUrl: 'spela.html',
@@ -20,6 +19,9 @@ export class SpelaPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SpelaPage');
+  }
+  popBack(){
+  	this.navCtrl.pop();
   }
 
 }

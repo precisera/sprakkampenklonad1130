@@ -14,7 +14,16 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+.menu-footer{
+  width: 138px;
+  height: 20px;
+  font-family: Cambay;
+  font-size: 12px;
+  text-align: center;
+  color: #a2e2df;
+  margin-bottom:10px;
+  margin-left: 20px;
+}
 
 @scroll-content{
   background-color: #054e72;

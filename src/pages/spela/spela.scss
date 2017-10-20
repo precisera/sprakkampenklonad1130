@@ -3,19 +3,27 @@ page-spela {
 		background: linear-gradient(to top, #0a5c84, #1675a3);
 	}
 
-
-	p{
-		color:#a2e2df;
-		size:13px;
-		font-family: Cambay;
+	.title{
+		color:white; 
+		font-size:24px;
+		font-weight: bold;  
+		font-family: 'Cambay';
+	}
+	.subtitle{
+		 color:white;
+		 font-size:16px;
+		 font-family: 'Cambay';
+		 margin-top: -1.8em;
 	}
 	ion-card{
-		height: 56px;
 		border-radius: 5px !important;
+		height: 142px;
+		top: 402px;
 	}
 	ion-card-content{
 		padding: 0px 0px 0px !important;
 	}
+
 	.subtext
 	{
 		
@@ -37,16 +45,13 @@ page-spela {
 
 			
 	  font-family: OpenSans;
-	  font-size: 17px;
+	  font-size: 24px;
 	  font-weight: 600;
 	  text-align: left;
 	  color: #2c531a;
+	  margin-bottom: 5px;
   
 
 	}
-	.mod-lightcard .card .card-ios .card-ios-lightgreygreen{
-		height: 142px;
-    width: 255px;
-  }
 
 }

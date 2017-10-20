@@ -3,7 +3,7 @@
 <ion-content>
   <div>
   <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" class="menuicon"></ion-icon>
           <div class="menu">Meny</div>
     </button>
   </div>
@@ -12,9 +12,9 @@
       <p text-center>En app för alla vetgiriga.<br>
       Unga & gamla. Infödda & nysvenskar.</p>
     </div>
-      <ion-card color="lightgreygreen">
+      <ion-card color="lightgreygreen" tappable (click)="goToSpela()">
 
-      <ion-card-content tappable>
+      <ion-card-content>
         <ion-grid>
             <ion-row align-items-center>
               <ion-col>
@@ -25,7 +25,7 @@
                 <img src="../assets/image/play.png" style="width:31px">
               </ion-col>
               <ion-col col-9>
-                <div class="buttontext" (click)="goToSpela()">Spela</div>
+                <div class="buttontext">Spela</div>
                 <div class="subtext">Tävla mot andra i språkmatcher</div>
               </ion-col>
             </ion-row>
@@ -36,7 +36,7 @@
 
     </ion-card>
 
-    <ion-card color="lightgreyblue">
+    <ion-card color="lightgreyblue" tappable  (click)="goToOva()">
 
       <ion-card-content tappable>
         <ion-grid>
@@ -48,7 +48,7 @@
               </ion-col>
               <ion-col col-9>
 
-                <div class="buttontext" (click)="goToOva()">Öva</div>
+                <div class="buttontext">Öva</div>
                 <div class="subtext">Träna olika språkförmågor i din takt</div>
               </ion-col>
             </ion-row>

@@ -2,77 +2,70 @@
 
 
 <ion-content padding>
-        
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
+        <button ion-button clear (click)="popBack()" style="color:white ">
+        <ion-icon name="arrow-back"></ion-icon> <b>Back</b>
       </button>
-      <!-- <div>
-        <ion-row>
+  
+      <div style="width:334px">
+      <ion-grid>
+        <ion-row align-items-center>
           <ion-col col-1>
-              <img src="../assets/image/spelaTrophy.png" style="width:31px">
-         </ion-col>
-         <ion-col col-9>
-           <h1 style="color:white; font-size:24px"> Spela </h1>
-           <p style="font-size:16px">Tävla mot andra i språkmatcher</p>
-         </ion-col>
+          </ion-col>
+          <ion-col col-2>
+              <img src="../assets/image/play.png" style="width:32px;height:49px;">
+          </ion-col>
+          <ion-col>
+              <p class="title"> Spela </p>
+          <p class="subtitle">Tävla mot andra i språkmatcher</p>
+          </ion-col>
         </ion-row>
+      </ion-grid>
+    </div>
+      <!-- <div>
+        
+      </div>
+      <div>
+        
 
       </div> -->
-
-      <div style="margin-top: 13px;margin-left: 17px;">
-          <img src="../assets/image/spelaTrophy.png" style="width:32px;height:49px;  ">
-      </div>
-      <div style="position: absolute;margin-left: 63px;top: 101px;">
-          <h1 style="color:white; font-size:24px;  font-family: Cambay;margin-bottom: 0rem;margin-top: 0.7rem;margin-left: 0px;"> Spela </h1>
-          <p style="font-size:16px; font-family: Cambay;margin-top: -6px;">Tävla mot andra i språkmatcher</p>
-
-      </div>
      <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 22px;" />
-    <ion-card class="mod-lightcard" color="lightgreygreen" style="
-    height: 142px;
-    width: 296px;
-    position: absolute;
-    left:-1px;
-    top: 232px;
-">
+    
+
+    <ion-card tappable color="lightgreygreen">
         
-      <ion-card-content  >
+      <ion-card-content>
           
       <ion-grid>
         <ion-row align-items-center>
-        <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
-          <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
-        </ion-col>
-        <ion-col style="margin-top: 23px;">
-            <div class="buttontext" style="font-size:24px">Veckokampen</div>
-            <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
+          
+          <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
+            <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
+          </ion-col>
+          <ion-col style="margin-top: 23px;margin-right: 5px;">
+              <div class="buttontext" style="font-size:24px">Veckokampen</div>
+              <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
           </ion-col>
       
         </ion-row>
       </ion-grid>
+
       </ion-card-content>
+
     </ion-card>
 
 
-    <ion-card color="lightgreyblue" class="mod-lightcard" style="
-    height: 142px;width: 296px;position: absolute; top: 402px;        left: -1px;">
+    <ion-card tappable color="lightgreyblue">
         
-              <ion-card-content tappable>
+        <ion-card-content>
                 <ion-grid>
                     <ion-row align-items-center>
                      
-                      <ion-col col-4 style="margin-top: 25px;
-                      
-                      margin-left: 10px;
-                      
-                      padding-left: 9px;
-                      
-                      padding-right: 0px;">
+                      <ion-col style="margin-left: 21px;margin-top: 24px;margin-right: 7px;" col-3>
                         <img src="../assets/image/versus.png" style="width: 68px;
                         
                         height: 42px;">
                       </ion-col>
-                      <ion-col style="margin-top: 23px;margin-left: 23px;">
+                      <ion-col style="margin-top: 23px;">
                         <div class="buttontext">1 Mot 1</div>
                         <div class="subtext">15 frågor. Du möter en slumpmässig motståndare på samma nivå.</div>
                       </ion-col>
