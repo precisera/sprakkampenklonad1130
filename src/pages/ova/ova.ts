@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the ÖvaPage page.
@@ -21,7 +22,7 @@ export class OvaPage {
     console.log('ionViewDidLoad ÖvaPage');
   }
   popBack(){
-    this.navCtrl.pop()
+    this.navCtrl.push(HomePage)
   }
 
   goToPractice(){

@@ -2,4 +2,101 @@ page-your-progress {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3);
 	}
+
+	.menu{
+		font-family: Cambay;
+		 font-size: 14px;
+	 	color: #ffffff;
+	 	text-align: left;
+	 	padding-left: 15px;
+	  	 padding-top: 8px;
+   }
+
+.Your-Progress	{		
+		margin-left: -63px;
+		width: 155px;
+		height: 39px;
+		font-family: Cambay;
+		font-size: 24px;
+		font-weight: bold;
+		color: #ffffff;
+		margin-left: 61px;
+		
+		
+	}
+
+	.md-line{
+			border-top: dotted 2px;	
+			position: relative;
+			color: #328eba;
+			// margin-top: 48px;
+			margin-top: -1px;
+			width: 280px;
+	}
+
+	.md-Rectangle {
+		width: 282px;
+		height: 166px;
+		border-radius: 6px;
+		background-color: #1675a3;
+		background-color: var(--nice-blue);
+		box-shadow: 0 2px 4px 0 rgba(8, 77, 110, 0.5);
+	  }
+	  
+
+	  .md-title{
+		height: 26px;
+		font-family: Cambay;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: left;
+		color: #ffffff;
+	  }
+
+
+	  .md-para{
+		font-family: Cambay;
+		font-size: 16px;
+		line-height: 1.63;
+		text-align: left;
+		color: #ffffff;
+	  }
+
+	  .md-trophy{
+		width: 36.6px; height: 35px;
+		 margin-left: 27px;           
+		margin-top: 25px;
+	  }
+
+	 .md-versus{
+		width: 48px;
+		height: 29px;
+		object-fit: contain;
+		box-shadow: 0 1px 1px 0 rgba(98, 98, 98, 0.5);
+		margin-left: 14px;
+		border-left-width: 0px;
+		border-left-style: solid;
+		margin-top: 25px;
+	  }
+
+
+	  .md-question{
+		width: 38px;
+		height: 37.8px;
+		margin-left: 15px;
+		margin-top: 25px;
+
+	  }
+
+
+
+
+
+
+
+
 }
+.scroll-content{
+	padding-left: 0px;
+	padding-right: 0px;
+  }

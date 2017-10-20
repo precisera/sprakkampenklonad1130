@@ -1,37 +1,52 @@
 
-<!-- <ion-header>
-
-  <ion-navbar>
-     
-    <ion-title>Öva</ion-title>
-  </ion-navbar>
-
-</ion-header> -->
-
 
 <ion-content padding>
-    <button ion-button clear (click)="popBack()" style="color:aquamarine ">
-        <ion-icon name="back"></ion-icon> back
+   
+        <ion-icon name="arrow-back" style="  width: 13px;  color: #ffffff;  position: absolute; top: 39px; font-size: 23px;" (click)="popBack()"></ion-icon>
+        <button ion-button clear (click)="popBack()" style="color: white;
+        width: 51px;
+        font-family: Cambay;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: left;
+        top: -8px;
+        left: 3px;" > Back
       </button>
       
-      <div style="margin-top: 13px;margin-left: 17px;">
-          <img src="../assets/image/spelaTrophy.png" style="width:32px;height:49px;  ">
+      <div style="margin-top: 13px;margin-left: 17px;   width: 39.5px;
+      height: 44.8px;">
+          <img src="../assets/image/brain.png" style="width: 39.5px; height: 44.8px;  ">
       </div>
       <div style="position: absolute;margin-left: 63px;top: 101px;">
-          <h1 style="color:white; font-size:24px;  font-family: Cambay;margin-bottom: 0rem;margin-top: 0.7rem;margin-left: 0px;"> Spela </h1>
-          <p style="font-size:16px; font-family: Cambay;margin-top: -6px;">Tävla mot andra i språkmatcher</p>
+          <h1 style="margin-bottom: 0rem;
+                         margin-top: -0.7rem;
+                         margin-left: 21px;
+                          width: 44px;
+                          height: 39px;
+                          font-family: Cambay;
+                          font-size: 24px;
+                          font-weight: bold;
+                         text-align: left;
+                          color: #ffffff;"> Öva </h1>
+          <p style=" width: 202px;
+                     height: 52px;
+                     font-family: Cambay;
+                     font-size: 16px;
+                     text-align: left;
+                     color: #ffffff;
+                     margin-top: -10px;
+                     margin-left: 20px;">Träna olika språkförmågor i din takt
+          
+          </p>
 
       </div>
      <hr style="border-top: dotted 2px;position: relative;/*! top: 174px; */color: #328eba;margin-top: 22px;" />
      <ion-card color="spelaColor">
         
-              <ion-card-content tappable>
-                <ion-grid>
+      <ion-card-content tappable style="width: 86px; height: 56px; font-family: Cambay; font-size: 16px;font-weight: bold;  text-align: left;   color: #ffffff;"> 
+                <!-- <ion-grid>
                     <ion-row align-items-center>
                       <ion-col>
-        
-                      </ion-col>
-                      <ion-col col-2>
                         <img src="../assets/image/play.png" style="width:31px">
                       </ion-col>
                       <ion-col col-9>
@@ -40,44 +55,121 @@
                       </ion-col>
                     </ion-row>
                   </ion-grid>
+               -->
+
+               <div >
+                  <img src="../assets/image/play.png" style="width:31px">
+               </div>
+
+               <div>
+                  <div class="buttontext" (click)="goToPractice()" style="margin-top: -37px;width: 194px; margin-left: 40px; font-family: Cambay; font-size: 17px;font-weight: bold;text-align: left;color: #656930;">Practice from saved cards</div>
+                  <div class="subtext" style="margin-top: -3px;    width: 194px;  margin-left: 40px;  color: #656930;  font-family: Cambay;  font-family: Cambay;  font-size: 12px;  text-align: left;                  color: #656930;">You have 12 saved cards</div>
+               </div>
               
               </ion-card-content>
             </ion-card>
         
-
+<div style="margin-left: -14px;margin-right: -15px;">
             <ion-list no-lines>
                 <div>
-                <ion-item>
-                  <ion-label>Select All</ion-label>
+                <ion-item style=" width: 375px;
+                height: 30px;
+                background-color: #1675a3 !important;
+                background-color: var(--nice-blue);">
+                  <ion-label style=" width: 375px;
+                  height: 30px;
+                  background-color: #1675a3 !important;
+                  background-color: var(--nice-blue); " ><p style="  width: 86px;
+                  height: 26px;
+                  font-family: Cambay;
+                  font-size: 16px;
+                  font-weight: bold;
+                  text-align: left;
+                  color: #ffffff;">Select All</p></ion-label>
                   <ion-checkbox [(ngModel)]="SelectAll"></ion-checkbox>
                 
                 </ion-item>
-                <span style="background-color:#ffff ; display:block" >dsffdhgfdhgc</span>
+                <!-- <span style="background-color:#ffff ; display:block" >dsffdhgfdhgc</span> -->
                 
                 
               </div>
-                <ion-item>
-                  <ion-label>Synonymer</ion-label>
+                <ion-item style=" width: 375px;
+                height: 86px;
+                background-color: #1675a3;
+                background-color: var(--nice-blue);"> 
+                  <ion-label > <p style=" font-family: Cambay;
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: left;
+                    color: #afdc9b;">Synonymer</p><p style="  width: 269px;
+                    height: 23px;
+                    font-family: Cambay;
+                    font-size: 14px;
+                    text-align: left;
+                    color: #afdc9b;">du har övat denna kategori 72 gånger</p></ion-label>
                   <ion-checkbox [(ngModel)]="Synonymer"></ion-checkbox>
                 
                 </ion-item>
-              
-                <ion-item>
-                  <ion-label>Metaforer</ion-label>
+                <!-- <span  class="du-har-vat-denna-ka" style="margin-left: 36px;margin-bottom: 0px;margin-top: -3px;" >du har övat denna kategori 72 gånger</span> -->
+                
+                <ion-item style=" width: 375px;
+                height: 86px;
+                background-color: #126d99;">
+                  <ion-label  ><p style=" width: 204px;
+                    height: 28px;
+                    font-family: Cambay;
+                    font-size: 17px;
+                    text-align: left;
+                    color: #ffffff;">Metaforer       </p>   <p style=" width: 204px;
+                    height: 28px;
+                    font-family: Cambay;
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: left;
+                    color: #ffffff;">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Metaforer"></ion-checkbox>
                 </ion-item>
-                <ion-item>
-                  <ion-label>Grammatik</ion-label>
+
+                <ion-item style=" width: 375px;
+                height: 86px;
+                background-color: #126d99;">
+                  <ion-label  ><p style=" font-family: Cambay;
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: left;
+                    color: #afdc9b;">Grammatik       </p>   <p style="  width: 269px;
+                    height: 23px;
+                    font-family: Cambay;
+                    font-size: 14px;
+                    text-align: left;
+                    color: #afdc9b;">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Grammatik"></ion-checkbox>
                 </ion-item>
-
-                <ion-item>
-                  <ion-label>Dialekt</ion-label>
+                
+                
+                <ion-item style=" width: 375px;
+                height: 86px;
+                background-color: #126d99;">
+                  <ion-label  ><p style=" font-family: Cambay;
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: left;
+                    color: white;">Dialekt       </p>   <p style="  width: 269px;
+                    height: 23px;
+                    font-family: Cambay;
+                    font-size: 14px;
+                    text-align: left;
+                    color: white;">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Dialekt"></ion-checkbox>
-                  <ion-label>Dialdffffffffffffffffekt</ion-label>
-                  
                 </ion-item>
+               
                 
               
               </ion-list>
+            </div>
+            <button ion-button style="  background-color: #afdc9b; width: 273px;
+            height: 56px;
+            " >
+                Next
+                </button>
 </ion-content>

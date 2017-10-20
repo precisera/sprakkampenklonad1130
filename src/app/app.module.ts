@@ -10,6 +10,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
+import { VeckokampenPage } from '../pages/veckokampen/veckokampen';
+import { VersusPage } from '../pages/versus/versus';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
     OvaPage,
     SpelaPage,
     YourProgressPage,
+    VeckokampenPage,
+    VersusPage
 
   ],
   imports: [
@@ -32,7 +36,9 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
     ListPage,
     YourProgressPage,
     SpelaPage,
-    OvaPage
+    OvaPage,
+    VeckokampenPage,
+    VersusPage
   ],
   providers: [
     StatusBar,

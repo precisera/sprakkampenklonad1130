@@ -1,19 +1,29 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header> -->
+<!-- FEEDBACK PAGE -->
 
 <ion-content>
+    <div>
+        <button ion-button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+                <div class="menu">Meny</div>
+        </button>
+    </div>
+    
+        <h1 class="Tyck-till-om-Sprkka ">Tyck till om Språkkampen</h1>
+        <p class="Vad-tycker-du-om-Va">Tyck till om Språkkampen</p>
+        
+        <ion-label class="Din-synpunkt">Din synpunkt</ion-label>
+      
+					<textarea name='comment' id='comment'  [(ngModel)]="comment" class="cl-comment">
+					</textarea><br>
+		
+		
+        <p class="Din-mailadress-friv">Din mailadress (frivilligt)</p>
+        
+        <textarea name='secondComment' id='secondComment'  [(ngModel)]="secondComment" class="cl-secondComment">
+        </textarea><br>
 
-  Coming Soon
 
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <p style="color:white">List Page</p>
-
+        	<button (click)="saveComment()" type="submit" class="Submit-button" ion-button outline>
+					Submit
+				</button>
 </ion-content>
