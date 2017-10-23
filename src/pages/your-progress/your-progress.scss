@@ -2,6 +2,10 @@ page-your-progress {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3);
 	}
+	.scroll-content{
+		padding: 11px !important;
+		}
+
 
 	.menu{
 		font-family: Cambay;
@@ -31,11 +35,11 @@ page-your-progress {
 			color: #328eba;
 			// margin-top: 48px;
 			margin-top: -1px;
-			width: 280px;
+			// width: 280px;
 	}
 
 	.md-Rectangle {
-		width: 282px;
+		// width: 282px;
 		height: 166px;
 		border-radius: 6px;
 		background-color: #1675a3;
@@ -88,15 +92,10 @@ page-your-progress {
 
 	  }
 
-
-
+		
 
 
 
 
 
 }
-.scroll-content{
-	padding-left: 0px;
-	padding-right: 0px;
-  }

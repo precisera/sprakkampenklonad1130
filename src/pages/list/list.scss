@@ -2,6 +2,10 @@ page-list {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3);
 	}
+
+	.scroll-content{
+		padding-right: 11px !important;
+	}
 	.menu{
 		 font-family: 'Cambay-Bold';
 		 font-weight: bold;
@@ -25,7 +29,7 @@ page-list {
   .Vad-tycker-du-om-Va {
 	// width: 334px;
 	margin-left: 11px;
-	width: 300px;
+	// width: 300px;
 	height: 24px;
 	font-family: Cambay;
 	font-size: 18px;
@@ -37,20 +41,21 @@ page-list {
   .cl-comment {
 	// width: 334px;
 	margin-left: 11px;
-	width: 300px;
+	// width: 300px;
 	height: 215px;
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.3) !important;
 	box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
 	border: solid 1px #ffffff;
+	width: -moz-available;
   }
 
   .cl-secondComment{
 	// width: 334px;
 	margin-left: 11px;
-	width: 300px;
+	// width: 300px;
 	height: 56px;
-
+	width: -moz-available;
 	border-radius: 5px;
 	background-color: rgba(255, 255, 255, 0.3);
 	box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
@@ -60,8 +65,9 @@ page-list {
   .Submit-button{
 	// width: 334px;
 	margin-left: 11px;
-	width: 300px;
+	// width: 300px;
 	height: 56px;
+	width: -moz-available;
 	border-radius: 5px;
 	background-color: #afdc9b !important;
 	background-color: var(--light-grey-green);
