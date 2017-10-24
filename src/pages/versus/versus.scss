@@ -13,7 +13,7 @@ page-versus {
     }
     .back{
         color: white;
-         width: 51px;
+         
          font-family: Cambay;
         font-size: 14px;
          font-weight: bold;
@@ -32,7 +32,7 @@ page-versus {
     }
 
     .Veckokampen{
-        width: 152px;
+        
         height: 39px;
         font-family: Cambay;
         font-size: 24px;
@@ -43,7 +43,7 @@ page-versus {
     }
 
     .fragor{
-        width: 194px;
+        
         height: 52px;
         font-family: Cambay;
         font-size: 16px;
@@ -54,11 +54,99 @@ page-versus {
     }
 
     .frgor-i{
-        width: 320px;
+        
         height: 92px;
         font-family: Cambay;
         font-size: 14px;
         text-align: left;
         color: #ffffff;
       }
+
+
+
+
+
+      $num-of-tabs: 2;
+      @mixin tabs {
+          @for $i from 1 through $num-of-tabs {
+            &:nth-of-type(#{$i}) {
+              &.segment-activated {
+                ~ .slide {
+                  left: calc((100% / #{$num-of-tabs}) * #{$i - 1});
+                }
+              }
+            }
+          }
+        }
+        .segment-button {
+          border: 0 !important;
+          @include tabs;
+        }
+  
+    // 
+      .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+          color: #fff !important;
+       }
+  
+      .bar-button-default-ios, .bar-button-clear-ios-default, .bar-button-ios-default {
+          color: #fff !important;
+       }
+      ion-toolbar{
+          padding-bottom: 0px !important;
+          
+          ion-segment {
+              ion-segment-button {
+                  border-top: none !important;
+                  border-left: none !important;
+                  border-right: none !important;
+                //   background: #1675a3 !important;
+                background-color: transparent !important;
+              
+                  
+              }
+          }
+          
+      }
+      ion-segment.segment.segment-ios{
+        //   background-color: #1675a3 !important;
+        background-color: transparent !important;
+          border-top: none !important;
+                  border-left: none !important;
+                  border-right: none !important;
+      }
+  
+      ion-segment-button.segment-button.segment-activated{
+          border-bottom: 3px solid #afdc9b !important;
+          border-top-left-radius: 0px !important;
+          border-top-right-radius: 0px !important;
+          border-bottom-right-radius: 0px !important;
+          border-bottom-left-radius: 0px !important;
+          margin-left: 0;
+          border-left-width: 0;
+      }
+      ion-segment-button.segment-button{
+          border: 0px !important;
+          
+      }
+  
+  
+     
+   
+          .segment .segment-md .ng-untouched .ng-pristine .ng-valid{
+          padding-top: 13px !important;
+          
+                      }
+                      .toolbar-ios .segment-ios {
+                           padding-top: 17px !important;
+          
+                      }
+                      .slide {
+                          background: dodgerblue;
+                          width: calc(100% / #{$num-of-tabs});
+                          height: 4px;
+                          position: absolute;
+                          left: 0;
+                          top: calc(100% - 4px);
+                          transition: left 0.3s ease-out;
+                         }
 }

@@ -7,9 +7,11 @@
         </ion-buttons>
 
 <div style="margin-top: 13px;margin-left: 17px;">
-    <img src="../assets/image/versus.png" class="versus">
+    <img src="../assets/image/versus.png" class="versus" style="width: 68PX;
+    
+    height: 42px;">
 </div>
-<div style="position: absolute;margin-left: 63px;top: 101px;">
+<div style="position: absolute;margin-left: 72px;top: 73px;">
     <h1 class="Veckokampen"> 1 Mot 1 </h1>
     <p class="fragor">15 frågor. Du möter en slumpmässig motståndare på samma nivå. </p>
 
@@ -19,15 +21,71 @@
 
 <p class="frgor-i ">25 frågor i varje duell. Flest poäng vinner. vi hittar en motståndare på samma nivå som dig. Fraågekategorien våljs slumpmaåssigt. Du har 10 minuter på dig</p>
 
-<ion-segment [(ngModel)]="segment" >
-  <ion-segment-button value="valj">
-    Välj nivå
-  </ion-segment-button>
+<div style="background-color: transparent !important;" >
 
-  <ion-segment-button value="duellhistoria">
-    Se duellhistoria
-  </ion-segment-button>
+    <ion-segment [(ngModel)]="segment">
+        
+                    
+                <ion-segment-button value="valj" style="color:white" >
+                    Välj nivå
+                    </ion-segment-button>
+                        
+    
+                <ion-segment-button value="duellhistoria" style="color:white" >
+                    Se duellhistoria
+                    </ion-segment-button>
+    
+                        </ion-segment>
 
-</ion-segment>
+</div>
 
+
+<div [ngSwitch]="segment">
+    
+    
+            <ion-list *ngSwitchCase="'valj'" no-lines>
+                <ion-item *ngFor="let valj of valjs; let i=index">
+                    <ion-label></ion-label>
+                    <ion-checkbox id="valj-{{ i }}" (ionChange)="addKpisToFilter($event, kpi)"></ion-checkbox>
+    
+                </ion-item>     
+    
+            </ion-list>
+            <ion-list *ngSwitchCase="'duellhistoria'" no-lines class="listtop">
+    
+            <div *ngFor="let duellhistoria of duellhistorias">
+                    
+    
+    
+                <ion-item>	
+                    <ion-label></ion-label>
+                    <ion-checkbox id="entity-{{ i }}" checked="false" (ionChange)="addEntitiesToFilter($event, entity)">{{ entity.entityName }}</ion-checkbox>
+                </ion-item>
+    
+                
+                        
+    
+            </div>
+            </ion-list>
+    
+    
+    </div>
 </ion-content>
+
+
+
+
+                
+        
+            
+        
+    
+
+
+   
+    
+
+ 
+       
+
+

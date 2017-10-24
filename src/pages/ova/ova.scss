@@ -23,7 +23,7 @@ page-ova {
 		  color: #ffffff;
 		  margin-top: -20px
 	}
-	.buttontext{
+	.md-buttontext{
 		
 					
 			  font-family: OpenSans;
@@ -102,6 +102,121 @@ page-ova {
 				background-color: #afdc9b;
 				background-color: var(--light-grey-green);
 				box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+			}
+
+			.md-eller{
+				font-family: Cambay;
+				font-size: 16px;
+				text-align: center;
+				color: #ffffff;
+				text-align: center;
+			}
+			.md-card{
+				// width: 86px;
+				 height: 56px;
+				 font-family: Cambay;
+				 font-size: 16px;
+				font-weight: bold;
+				  text-align: left;   color: #ffffff;
+			}
+			.md-label{
+				
+				height: 30px;
+				background-color: #1675a3 !important;
+				background-color: var(--nice-blue);
+			}
+
+			.md-lab{
+				
+                height: 86px;
+                background-color: #1675a3;
+                background-color: var(--nice-blue);
+			}
+
+			.md-synonymer{
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b;
+			}
+
+			.p-synonymer{
+				height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: #afdc9b
+			}
+
+			.md-meta{
+				height: 28px;
+				font-family: Cambay;
+				font-size: 17px;
+				text-align: left;
+				color: #ffffff;
+			}
+
+			.p-meta{
+				height: 28px;
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #ffffff;
+			}
+
+			.md-gram{
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b;
+			}
+
+			.p-gram{
+				height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: #afdc9b;
+			}
+
+			.md-dial{
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: white
+			}
+
+			.p-dial{
+				 
+				height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: white;
+			}
+
+			.md-select{
+				width: 86px;
+				height: 26px;
+				font-family: Cambay;
+				font-size: 16px;
+				font-weight: bold;
+				text-align: left;
+				color: #ffffff
+			}
+
+			.md-buttontext{
+				margin-top: -37px;
+				// width: 194px; 
+				margin-left: 40px; 
+				font-family: Cambay; 
+				font-size: 17px;
+				font-weight: bold;text-align: left;
+				color: #656930;
 			}
 			
 }
