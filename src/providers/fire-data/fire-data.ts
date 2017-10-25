@@ -19,14 +19,42 @@ export class FireDataProvider {
 
 	getAllQuestions() {
 		return new Promise((resolve, reject) => {
-			var dbRef = firebase.database().ref('/questions');
-			dbRef.orderByChild('Category 1').equalTo('Synonym').on('child_added', (data) => {
+			var dbRef = firebase.database().ref('questions');
+			dbRef.orderByChild('Category 1').equalTo('Synonym').on('value', (data) => {
 				console.log('QUESTIONS', data.val());
 			})
 			/*dbRef.once('value', (data) => {
 				console.log('QUESTIONS', data.val());
 			});*/
 		});		
+	}
+
+	getCategories() {
+		return new Promise((resolve, reject) => {
+			var quesCategories = [];
+			var dbRef = firebase.database().ref('quesCategories');
+			dbRef.on('value', (data) => {
+				for (var i in data.val()) {
+					quesCategories.push(data.val()[i]);
+				}
+
+				resolve(quesCategories);
+				// console.log(quesCategories);
+			});
+		});
+	}
+
+	getQuesBasedOnSelection(selection) {
+		var categories = selection.cat; //Array
+		var levels = selection.lev; //Array
+
+		console.log(categories);
+		return new Promise((resolve, reject) => {
+			var dbRef = firebase.database().ref('questions');
+			dbRef.orderByChild('Category 1').equalTo(categories[0]).on('value', (data) => {
+				console.log('QUESTIONS', data.val());
+			})
+		});
 	}
 
 

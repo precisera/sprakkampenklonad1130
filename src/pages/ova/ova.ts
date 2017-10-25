@@ -15,26 +15,55 @@ import { FireDataProvider } from '../../providers/fire-data/fire-data';
  */
 
 @Component({
-  selector: 'page-ova',
-  templateUrl: 'ova.html',
+	selector: 'page-ova',
+	templateUrl: 'ova.html',
 })
 export class OvaPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider) {
+	Synonymer: boolean = false;
+	Metaforer: boolean = false;
+	Grammatik: boolean = false;
+	Dialekt: boolean = false;
+	Stavning: boolean = false;
 
-    this.fireData.getAllQuestions();
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider) {
 
-  ionViewDidLoad() {
-    console.log('!@!@!@!@!@!@');
-    console.log('ionViewDidLoad ÖvaPage');
-  }
-  
-  popBack(){
-  this.navCtrl.pop();
-  }
+		this.fireData.getCategories().then((categories: Array<string>) => {
+			 console.log(categories);
+		});
+		this.fireData.getAllQuestions();
+	}
 
-  goToPractice(){
-    this.navCtrl.push(LevelPage);
-  }
+	ionViewDidLoad() {
+		console.log('!@!@!@!@!@!@');
+		console.log('ionViewDidLoad ÖvaPage');
+	}
+
+	checkNg() {
+		console.log(this.Synonymer);
+	}
+	
+	popBack(){
+		this.navCtrl.pop();
+	}
+
+	goToPractice(){
+		var catSelectedByUser = [];
+		if (this.Synonymer) {
+			catSelectedByUser.push('Ordförståelse');
+		}
+		if (this.Metaforer) {
+			catSelectedByUser.push('Synonymer & motsatser');
+		}
+		if (this.Grammatik) {
+			catSelectedByUser.push('Släkt & slang');
+		}
+		if (this.Dialekt) {
+			catSelectedByUser.push('Ordspråk & uttryck');
+		}
+		if (this.Stavning) {
+			catSelectedByUser.push('Stavning & grammatik');
+		}
+		this.navCtrl.push(LevelPage, {cat: catSelectedByUser});
+	}
 }
