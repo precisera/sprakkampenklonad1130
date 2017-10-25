@@ -1,33 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { LevelPage } from '../level/level';
+import { QuestionsPage } from '../questions/questions';
 
 /**
- * Generated class for the ÖvaPage page.
+ * Generated class for the LevelPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-ova',
-  templateUrl: 'ova.html',
+  selector: 'page-level',
+  templateUrl: 'level.html',
 })
-export class OvaPage {
+export class LevelPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ÖvaPage');
+    console.log('ionViewDidLoad LevelPage');
   }
-  
+
   popBack(){
   this.navCtrl.pop();
   }
 
   goToPractice(){
-    this.navCtrl.push(LevelPage);
+    this.navCtrl.setRoot(QuestionsPage);
   }
+
 }

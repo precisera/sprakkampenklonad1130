@@ -4,7 +4,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LevelPage } from '../pages/level/level';
 import { ListPage } from '../pages/list/list';
+import { QuestionsPage } from '../pages/questions/questions';
+
 import { SpelaPage } from '../pages/spela/spela';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -22,7 +25,9 @@ import { VersusPage } from '../pages/versus/versus';
     SpelaPage,
     YourProgressPage,
     VeckokampenPage,
-    VersusPage
+    VersusPage,
+    LevelPage,
+    QuestionsPage
 
   ],
   imports: [
@@ -38,7 +43,9 @@ import { VersusPage } from '../pages/versus/versus';
     SpelaPage,
     OvaPage,
     VeckokampenPage,
-    VersusPage
+    VersusPage,
+    LevelPage,
+    QuestionsPage
   ],
   providers: [
     StatusBar,
