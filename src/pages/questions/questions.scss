@@ -3,6 +3,11 @@ page-questions {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3) !important;
 	}
+	.footerwrap{
+		max-width: 40em;
+      display:block;
+      margin:0 auto;
+	}
 
 	.menu{
 		 font-family: 'Cambay-Bold';
@@ -17,11 +22,30 @@ page-questions {
 	  font-size: 35px;
 	  font-weight: 900;
 	}
+	.answercard{
+		border-radius: 5px;
+		  background-color: #1675a3 !important;
+		  background-color: var(--nice-blue);
+		  box-shadow: 0 2px 4px 0 rgba(8, 77, 110, 0.5) !important;
+	}
+	.optionscard{
+		 height: 30px !important;
+		 border-radius: 5px !important;
+  background-color: #93d1cd !important;
+  background-color: var(--light-grey-blue);
+	}
 
 	ion-card{
 		border-radius: 5px !important;
   		background-color: #0f6791 !important;
   		box-shadow: inset 0 0 4px 0 rgba(34, 34, 34, 0.5) !important;
+	}
+	// ion-card-content{
+	// 	padding-top: 4px !important;
+	// }
+	.cardcontenttext{
+		padding-top: 4px !important;
+
 	}
 	p{
 	  font-family: Cambay !important;
@@ -29,6 +53,35 @@ page-questions {
 	  font-weight: bold !important;
 	  text-align: center;
 	  color: #ffffff !important;
+	}
+	.quesbutton{
+		height: 56px !important;
+	  border-radius: 5px;
+	  background-color: #afdc9b !important;
+	  background-color: var(--light-grey-green);
+	  box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	}
+	.quesbuttontext{
+		font-family: OpenSans;
+		  font-size: 17px;
+		  font-weight: 600;
+		  text-align: left;
+		  color: #2c531a;
+		  // color: var(--camo-green);
+	}
+	.quesalternatebutton{
+		height: 56px !important;
+		border-radius: 5px !important;
+	  box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	  border: solid 1px #afdc9b !important;
+  // border: solid 1px var(--light-grey-green);
+	}
+	.quesalternatebuttontext{
+		  font-family: OpenSans;
+		  font-size: 17px;
+		  font-weight: 600;
+		  text-align: left;
+		  color: #afdc9b;
 	}
 
 }
