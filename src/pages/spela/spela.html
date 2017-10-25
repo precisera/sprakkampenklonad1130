@@ -29,7 +29,7 @@
      
     
 
-    <ion-card tappable color="lightgreygreen">
+    <ion-card tappable color="lightgreygreen" (click)="goToVeckokampen()">
         
       <ion-card-content>
           
@@ -39,7 +39,7 @@
         <ion-col style="margin-left: 22px;margin-top: 24px;margin-right: 7px;" col-3>
           <img src="../assets/image/Trophy.png" style="width:55.4px;height:54px">
         </ion-col>
-        <ion-col style="margin-top: 23px;margin-left: 23px;" (click)="goToVeckokampen()">
+        <ion-col style="margin-top: 23px;margin-left: 23px;">
             <div class="buttontext" style="font-size:24px" >Veckokampen</div>
             <div class="subtext" style="margin-top: 3px;">25 frågor. Olika tema varje vecka. Alla mot alla.</div>
           </ion-col>
@@ -52,7 +52,7 @@
     </ion-card>
 
 
-    <ion-card tappable color="lightgreyblue">
+    <ion-card tappable color="lightgreyblue" (click)="goToVersus()">
         
         <ion-card-content>
                 <ion-grid>
@@ -61,7 +61,7 @@
                       <ion-col style="margin-left: 21px;margin-top: 24px;margin-right: 7px;" col-3>
                         <img src="../assets/image/versus.png" style="width: 68px;height: 42px;">
                       </ion-col>
-                      <ion-col style="margin-top: 23px;margin-left: 23px;" (click)="goToVersus()">
+                      <ion-col style="margin-top: 23px;margin-left: 23px;">
                         <div class="buttontext">1 Mot 1</div>
                         <div class="subtext">15 frågor. Du möter en slumpmässig motståndare på samma nivå.</div>
                       </ion-col>

@@ -27,51 +27,53 @@
      <hr style="border-top: dotted 2px;position: relative;color: #328eba;margin-top: -12px;" />
      
 
-     <ion-card color="spelaColor">
+     <ion-card color="spelaColor" (click)="goToPractice()">
         
       <ion-card-content tappable class="md-card"> 
-                <!-- <ion-grid>
+                <ion-grid>
                     <ion-row align-items-center>
-                      <ion-col>
-                        <img src="../assets/image/play.png" style="width:31px">
+          <!--             <ion-col>
+                        
+                      </ion-col> -->
+                      <ion-col col-2>
+                        <img src="../assets/image/saved.png" style="width:30.2px">
                       </ion-col>
-                      <ion-col col-9>
-                        <div class="buttontext" (click)="goToPractice()">Practice from saved cards</div>
-                        <div class="subtext">You have 12 saved cards</div>
+                      <ion-col col-10>
+                        <div class="practicetitle" >Practice from saved cards</div>
+                        <div class="practicesubtitle">You have 12 saved cards</div>
                       </ion-col>
                     </ion-row>
                   </ion-grid>
-               -->
+              
 
-               <div >
+               <!-- <div >
                   <img src="../assets/image/play.png" style="width:31px">
                </div>
+ -->
 
-               <div>
-                  <div  (click)="goToPractice()" class="md-buttontext">Practice from saved cards</div>
+
+              <!--  <div>
+                  <div class="md-buttontext">Practice from saved cards</div>
                   <div class="subtext" style="margin-top: -3px; width: 194px; margin-left: 40px;  color: #656930 !important;font-family: Cambay;  font-size: 12px;  text-align: left; color: #656930;">You have 12 saved cards</div>
                </div>
-              
+               -->
               </ion-card-content>
             </ion-card>
-            <p class="md-eller">Eller öva på nya frågor från valda kategorie</p>
+            <p class="md-eller" padding>Eller öva på nya frågor från valda kategorie</p>
         
-<div style="margin-left: -14px;margin-right: -15px;">
+<div style="margin-left: -14px;margin-right: -15px;margin-top: -20px;">
             <ion-list no-lines>
                 <div>
-                <ion-item style="
-                height: 30px;
-                background-color: #1675a3 !important;
-                background-color: var(--nice-blue);">
-                  <ion-label class="md-label" ><p class="md-select">Select All</p></ion-label>
+                <ion-item class="md-lab">
+                  <ion-label><p class="md-select">Select All</p></ion-label>
                   <ion-checkbox [(ngModel)]="SelectAll"></ion-checkbox>
                 
                 </ion-item>
                 
                 
               </div>
-                <ion-item class="md-lab"> 
-                  <ion-label > <p class="md-synonymer">Synonymer</p><p class="p-synonymer">du har övat denna kategori 72 gånger</p></ion-label>
+                <ion-item class="md-labs"> 
+                  <ion-label > <p class="md-synonymer">Ordförståelse</p><p class="p-synonymer">du har övat denna kategori 72 gånger</p></ion-label>
                   <ion-checkbox [(ngModel)]="Synonymer"></ion-checkbox>
                 
                 </ion-item>
@@ -80,29 +82,38 @@
                 <ion-item style="
                 height: 86px;
                 background-color: #126d99;">
-                  <ion-label  ><p class="md-meta">Metaforer       </p>   <p class="p-meta">du har övat denna kategori 91 gånger</p>  </ion-label>
+                  <ion-label  ><p class="md-meta">Synonymer & motsatser</p>   <p class="p-meta">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Metaforer"></ion-checkbox>
                 </ion-item>
 
                 <ion-item style="   
                 height: 86px;
                 background-color:#085b83;">
-                  <ion-label  ><p class="md-gram">Grammatik       </p>   <p class="p-gram">du har övat denna kategori 91 gånger</p>  </ion-label>
+                  <ion-label  ><p class="md-gram">Släkt & slang</p>   <p class="p-gram">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Grammatik"></ion-checkbox>
                 </ion-item>
                 
                 
                 <ion-item style="
                 height: 86px;
-                background-color: #126d99;">
-                  <ion-label  ><p class="md-dial">Dialekt       </p>   <p class="p-dial">du har övat denna kategori 91 gånger</p>  </ion-label>
+                background-color: #044e72;">
+                  <ion-label  ><p class="md-dial">Ordspråk & uttryck</p>   <p class="p-dial">du har övat denna kategori 91 gånger</p>  </ion-label>
                   <ion-checkbox [(ngModel)]="Dialekt"></ion-checkbox>
                 </ion-item>
                
                 
-              
-              </ion-list>
+              <ion-item style="   
+                height: 86px;
+                background-color:#085b83;">
+                  <ion-label  ><p class="md-gram">Stavning & grammatik</p>   <p class="p-gram">du har övat denna kategori 91 gånger</p>  </ion-label>
+                  <ion-checkbox [(ngModel)]="Stavning"></ion-checkbox>
+                </ion-item>
+
+                </ion-list>
             </div>
-            <button ion-button style="  background-color: #afdc9b;width: -moz-available;
-            height: 56px; " > Next</button>
+           
 </ion-content>
+<ion-footer padding>
+   <button ion-button block style="  background-color: #afdc9b;width: -moz-available;
+            height: 56px; " > Next</button>
+</ion-footer>

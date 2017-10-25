@@ -2,6 +2,10 @@ page-ova {
 	ion-content{
 		background: linear-gradient(to top, #0a5c84, #1675a3) !important;
 	}
+	ion-card{
+		border-radius:5px !important;
+		// height: 80%
+	}
 
 	.backbutton{
 		margin-left: 13px;
@@ -22,6 +26,19 @@ page-ova {
 		  text-align: left;
 		  color: #ffffff;
 		  margin-top: -20px
+	}
+	.practicetitle{
+		font-family: 'Cambay';
+		  font-size: 17px;
+		  font-weight: bold;
+		  text-align: left;
+		  color: #656930;
+	}
+	.practicesubtitle{
+		font-family: 'Cambay';
+		  font-size: 12px;
+		  text-align: left;
+		  color: #656930;
 	}
 	.md-buttontext{
 		
@@ -107,30 +124,35 @@ page-ova {
 			.md-eller{
 				font-family: Cambay;
 				font-size: 16px;
-				text-align: center;
+				// text-align: center;
 				color: #ffffff;
-				text-align: center;
+				// text-align: center;
 			}
-			.md-card{
-				// width: 86px;
-				 height: 56px;
-				 font-family: Cambay;
-				 font-size: 16px;
-				font-weight: bold;
-				  text-align: left;   color: #ffffff;
-			}
-			.md-label{
+			// .md-card{
+			// 	// width: 86px;
+			// 	 // height: 56px;
+			// 	 font-family: Cambay;
+			// 	 font-size: 16px;
+			// 	font-weight: bold;
+			// 	  text-align: left;   color: #ffffff;
+			// }
+
+			// .md-label{
 				
-				height: 30px;
-				background-color: #1675a3 !important;
-				background-color: var(--nice-blue);
-			}
+			// 	height: 30px;
+			// 	// background-color: #1675a3 !important;
+			// 	// background-color: var(--nice-blue);
+			// }
 
 			.md-lab{
 				
                 height: 86px;
                 background-color: #1675a3;
                 background-color: var(--nice-blue);
+			}
+			.md-labs{
+				height: 86px;
+				background-color: #1675a3 !important;
 			}
 
 			.md-synonymer{
@@ -142,7 +164,7 @@ page-ova {
 			}
 
 			.p-synonymer{
-				height: 23px;
+				// height: 23px;
 				font-family: Cambay;
 				font-size: 14px;
 				text-align: left;
@@ -150,18 +172,19 @@ page-ova {
 			}
 
 			.md-meta{
-				height: 28px;
+				// height: 28px;
 				font-family: Cambay;
+				font-weight: bold;
 				font-size: 17px;
 				text-align: left;
 				color: #ffffff;
 			}
 
 			.p-meta{
-				height: 28px;
+				// height: 28px;
 				font-family: Cambay;
-				font-size: 17px;
-				font-weight: bold;
+				font-size: 14px;
+				// font-weight: bold;
 				text-align: left;
 				color: #ffffff;
 			}
