@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import { LevelPage } from '../level/level';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 
@@ -34,6 +35,6 @@ export class OvaPage {
   }
 
   goToPractice(){
-    
+    this.navCtrl.push(LevelPage);
   }
 }

@@ -1,0 +1,92 @@
+page-level {
+
+	.backbutton{
+		margin-left: 13px;
+		font-family: 'Cambay-Bold';
+  		font-size: 14px;
+ 		margin-top: 1.4em;
+	}
+	.title{
+		font-family: 'Cambay';
+	  font-size: 24px;
+	  font-weight: bold;
+	  text-align: left;
+	  color: #ffffff;
+	  margin-left:25px;
+	}
+
+	.footerwrap{
+		max-width: 40em;
+      display:block;
+      margin:0 auto;
+	}
+
+	.md-lab{
+				
+                height: 86px;
+                background-color: #1675a3;
+                background-color: var(--nice-blue);
+	}
+	.md-select{
+				
+				font-family: Cambay;
+				font-size: 16px;
+				font-weight: bold;
+				text-align: left;		color: #ffffff
+	}
+
+	.md-labs{
+				height: 86px;
+				background-color: #1675a3 !important;
+			}
+
+			.md-synonymer{
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b;
+			}
+			.p-synonymer{
+				// height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: #afdc9b
+			}
+
+			.md-meta{
+				// height: 28px;
+				font-family: Cambay;
+				font-weight: bold;
+				font-size: 17px;
+				text-align: left;
+				color: #ffffff;
+			}
+
+			.p-meta{
+				// height: 28px;
+				font-family: Cambay;
+				font-size: 14px;
+				// font-weight: bold;
+				text-align: left;
+				color: #ffffff;
+			}
+
+			.md-gram{
+				font-family: Cambay;
+				font-size: 17px;
+				font-weight: bold;
+				text-align: left;
+				color: #afdc9b;
+			}
+
+			.p-gram{
+				height: 23px;
+				font-family: Cambay;
+				font-size: 14px;
+				text-align: left;
+				color: #afdc9b;
+			}
+
+}
