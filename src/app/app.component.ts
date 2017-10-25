@@ -8,6 +8,12 @@ import { SpelaPage } from '../pages/spela/spela';
 import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
 
+import { FireDataProvider } from '../providers/fire-data/fire-data';
+
+import * as firebase from 'firebase';
+
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +25,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fireData: FireDataProvider) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -35,6 +41,7 @@ export class MyApp {
   }
 
   initializeApp() {
+    this.initializeFirebase();
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -47,5 +54,18 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  initializeFirebase() {
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBquCtFdmDW7487fk2rGHS41yixqYpvF1I",
+      authDomain: "sprakkampen-4a494.firebaseapp.com",
+      databaseURL: "https://sprakkampen-4a494.firebaseio.com",
+      projectId: "sprakkampen-4a494",
+      storageBucket: "sprakkampen-4a494.appspot.com",
+      messagingSenderId: "650225229649"
+    };
+    firebase.initializeApp(config);
   }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
@@ -12,6 +13,7 @@ import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
 import { VeckokampenPage } from '../pages/veckokampen/veckokampen';
 import { VersusPage } from '../pages/versus/versus';
+import { FireDataProvider } from '../providers/fire-data/fire-data';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { VersusPage } from '../pages/versus/versus';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp,{mode: 'ios'}),
   ],
   bootstrap: [IonicApp],
@@ -43,7 +46,8 @@ import { VersusPage } from '../pages/versus/versus';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FireDataProvider
   ]
 })
 export class AppModule {}
