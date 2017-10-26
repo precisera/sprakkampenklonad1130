@@ -1,0 +1,75 @@
+page-questionresults {
+
+	ion-content{
+		background: linear-gradient(to top, #0a5c84, #1675a3) !important;
+	}
+	.footerwrap{
+		max-width: 40em;
+      display:block;
+      margin:0 auto;
+	}
+
+	.menu{
+		 font-family: 'Cambay-Bold';
+		 font-weight: bold;
+	  font-size: 14px;
+	  color: #ffffff;
+	  text-align: left;
+	  padding-left: 15px;
+		padding-top: 8px;
+	}
+	.menuicon{
+	  font-size: 35px;
+	  font-weight: 900;
+	}
+
+	p{
+	  font-family: Cambay;
+	  font-size: 24px !important;
+	  font-weight: bold;
+	  line-height: 1.5;
+	  text-align: center;
+	  color: #ffffff !important;
+	}
+
+	.answercard{
+		border-radius: 5px;
+		  background-color: #1675a3 !important;
+		  background-color: var(--nice-blue);
+		  box-shadow: 0 2px 4px 0 rgba(8, 77, 110, 0.5) !important;
+	}
+	.optionscard{
+		 height: 30px !important;
+		 border-radius: 5px !important;
+  		background-color: #93d1cd !important;
+	}
+	.quesbutton{
+		height: 56px !important;
+	  border-radius: 5px;
+	  background-color: #afdc9b !important;
+	  box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	}
+	.quesbuttontext{
+		font-family: OpenSans;
+		  font-size: 17px;
+		  font-weight: 600;
+		  text-align: left;
+		  color: #2c531a;
+		  // color: var(--camo-green);
+	}
+	.quesalternatebutton{
+		height: 56px !important;
+		border-radius: 5px !important;
+	  box-shadow: 0 1px 4px 0 rgba(106, 106, 106, 0.5);
+	  border: solid 1px #afdc9b !important;
+  // border: solid 1px var(--light-grey-green);
+	}
+	.quesalternatebuttontext{
+		  font-family: OpenSans;
+		  font-size: 17px;
+		  font-weight: 600;
+		  text-align: left;
+		  color: #afdc9b;
+	}
+
+}

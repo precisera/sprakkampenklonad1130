@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { LevelPage } from '../pages/level/level';
 import { ListPage } from '../pages/list/list';
 import { QuestionsPage } from '../pages/questions/questions';
+import { QuestionresultsPage } from '../pages/questionresults/questionresults';
 
 import { SpelaPage } from '../pages/spela/spela';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -29,7 +30,8 @@ import { FireDataProvider } from '../providers/fire-data/fire-data';
     VeckokampenPage,
     VersusPage,
     LevelPage,
-    QuestionsPage
+    QuestionsPage,
+    QuestionresultsPage
 
   ],
   imports: [
@@ -48,7 +50,8 @@ import { FireDataProvider } from '../providers/fire-data/fire-data';
     VeckokampenPage,
     VersusPage,
     LevelPage,
-    QuestionsPage
+    QuestionsPage,
+    QuestionresultsPage
   ],
   providers: [
     StatusBar,

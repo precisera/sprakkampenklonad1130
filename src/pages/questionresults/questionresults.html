@@ -1,0 +1,81 @@
+<!--
+  Generated template for the QuestionresultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding>
+
+	<div style="padding-top: 20px">
+		<ion-buttons left>
+			<button ion-button clear color="white" menuToggle>
+					<ion-icon style="font-size: 4.2rem !important;" name="menu"></ion-icon> <p class="menu">Meny</p>
+			</button>
+		</ion-buttons>
+	</div>
+
+<div *ngIf="!answerCorrect">
+	<p>Incorrect</p>
+	<div padding text-center>
+		<ion-icon name="md-close" color="wrong" style="font-size:41px"></ion-icon>
+	</div>
+
+	<ion-grid>
+			<ion-row>
+				<ion-col col-6 *ngFor="let option of quesOptions">
+					<ion-card tappable class="answercard">
+						<ion-card-content>
+							<p>{{ option }}</p>
+						</ion-card-content>
+					</ion-card>				
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+</div>
+
+<div *ngIf="answerCorrect">
+<p>Correct</p>
+<div padding text-center>
+	<ion-icon name="checkmark" color="lightgreygreen" style="font-size:41px"></ion-icon>
+</div>
+<ion-grid>
+			<ion-row align-items-center>
+				<ion-col col-6 *ngFor="let option of quesOptions">
+					<ion-card tappable class="answercard">
+						<ion-card-content>
+							<p>{{ option }}</p>
+						</ion-card-content>
+					</ion-card>				
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+
+</div>
+
+
+</ion-content>
+<ion-footer padding>
+  <div class="footerwrap">
+
+  <ion-grid>
+    <ion-row>
+    	<ion-col>
+  <button ion-button block class="quesbutton" (click)="goToPractice()"> <span class="quesbuttontext">Next Question</span></button>
+</ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Get Upp</span></button>
+
+  </ion-col>
+  <ion-col>
+  
+  <button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Spara</span></button>
+  </ion-col>
+  </ion-row>
+</ion-grid>
+      </div>
+</ion-footer>

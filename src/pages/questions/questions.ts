@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { QuestionresultsPage } from '../questionresults/questionresults';
 
 import * as $ from 'jquery';
 import * as _ from 'lodash';
@@ -123,9 +124,10 @@ export class QuestionsPage {
 
 		if (this.correctOptions.length == correctAnsLength) {
 			console.log(this.userSelectedOptions);
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: 'true'});
 		} else {
-			
-		}
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: 'false'});
+		}		
 	}
 
  
