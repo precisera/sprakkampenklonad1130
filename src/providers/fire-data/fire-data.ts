@@ -46,20 +46,37 @@ export class FireDataProvider {
 
 	getQuesBasedOnSelection(selection) {
 		var categories = selection.cat; //Array
+		var catLength = categories.length + 1;
 		var levels = selection.lev; //Array
 
 		var questions: Array<string> = [];
+		var finalQuestions: Array<string> = [];
 
 		// console.log(selection);
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
-			dbRef.orderByChild('Category 1').equalTo(categories[0]).on('value', (data) => {
-				for (var i in data.val()) {
-					questions.push(data.val()[i]);
-				}
-				resolve(questions);
-				// console.log('QUESTIONS', data.val());
-			})
+			for (let i = 0; i < categories.length; ++i) {
+				dbRef.orderByChild('Category 1').equalTo(categories[i]).on('value', (data) => {
+					var quesObjLength = Object.keys(data.val()).length;
+					var qN = 1;
+					for (var q in data.val()) {
+						for (var j = 0; j < levels.length; ++j) {
+							if (data.val()[q]['Nivå'] == levels[j]) {
+								questions.push(data.val()[q]);
+								// console.log(data.val()[i]);
+							}							
+						}
+						console.log(i, categories.length)
+						if (i+1 == categories.length) {
+							resolve(questions);	
+							// console.log('On firedata', questions);
+						}
+						qN++;										
+					}
+					
+					// console.log('QUESTIONS', data.val());
+				});				
+			}	
 		});
 	}
 
