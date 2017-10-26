@@ -17,11 +17,11 @@
 	</div>
 
 	<ion-grid>
-			<ion-row>
+			<ion-row align-items-center>
 				<ion-col col-2>
-					<ion-card color="lightgreygreen">
+					<ion-card class="optionscard">
 
-						<ion-card-content>
+						<ion-card-content class="cardcontenttext">
 							<p>{{ quesLevel }}p</p>
 						</ion-card-content>
 
@@ -29,9 +29,9 @@
 
 				</ion-col>
 				<ion-col col-4>
-					<ion-card color="lightgreygreen">
+					<ion-card class="optionscard">
 
-						<ion-card-content>
+						<ion-card-content class="cardcontenttext">
 							<p>{{ quesCat }}</p>
 						</ion-card-content>
 
@@ -61,8 +61,8 @@
 
 		<ion-grid>
 			<ion-row>
-				<ion-col col-6>
-					<ion-card tappable *ngFor="let option of quesOptions">
+				<ion-col col-6 *ngFor="let option of quesOptions">
+					<ion-card tappable class="answercard">
 						<ion-card-content>
 							<p>{{ option }}</p>
 						</ion-card-content>
@@ -70,9 +70,25 @@
 				</ion-col>
 			</ion-row>
 		</ion-grid>
-
-		<button ion-button block style="  background-color: #afdc9b;width: -moz-available;
-						height: 56px; " (click)="goToPractice()"> Klar</button>
-			
-
 </ion-content>
+<ion-footer padding>
+  <div class="footerwrap">
+
+  <ion-grid>
+    <ion-row>
+  <button ion-button block class="quesbutton" (click)="goToPractice()"> <span class="quesbuttontext">Klar</span></button>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Get Upp</span></button>
+
+  </ion-col>
+  <ion-col>
+  
+  <button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Spara</span></button>
+  </ion-col>
+  </ion-row>
+</ion-grid>
+      </div>
+</ion-footer>
+
