@@ -18,6 +18,7 @@ import { YourProgressPage } from '../pages/your-progress/your-progress';
 import { VeckokampenPage } from '../pages/veckokampen/veckokampen';
 import { VersusPage } from '../pages/versus/versus';
 import { FireDataProvider } from '../providers/fire-data/fire-data';
+import { GlobalsProvider } from '../providers/globals/globals';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { FireDataProvider } from '../providers/fire-data/fire-data';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FireDataProvider
+    FireDataProvider,
+    GlobalsProvider
   ]
 })
 export class AppModule {}
