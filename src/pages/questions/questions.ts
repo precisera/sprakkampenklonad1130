@@ -5,6 +5,9 @@ import { QuestionresultsPage } from '../questionresults/questionresults';
 import * as $ from 'jquery';
 import * as _ from 'lodash';
 
+import { GlobalsProvider } from '../../providers/globals/globals';
+
+
 /**
  * Generated class for the QuestionsPage page.
  *
@@ -32,13 +35,18 @@ export class QuestionsPage {
 	numOfQues: any = 0;
 	userSelectedOptions: any = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams) {
-		this.questions = this.navParams.get('questions');
-
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
 		
 
-		// this.question = "Some dummy question";
-		// this.description = "some dummy description";
+		if (this.globals.quesNum == 0) {
+			this.questions = this.navParams.get('questions');
+			this.globals.questions = this.navParams.get('questions');
+		}else if (this.globals.quesNum != 0) {
+			this.quesNum = this.globals.quesNum;
+			this.questions = this.globals.questions;
+
+			console.log(this.globals.questions);
+		}
 		this.numOfQues = this.questions.length;
 
 		this.groupQuesOptions();
@@ -91,11 +99,11 @@ export class QuestionsPage {
 		var clickedTag = event.target.tagName;
 
 		if (clickedTag == 'P') {
-			// console.log('p', domEle.parentElement.parentElement);
-			$('.answercard').css('background-color', 'red !important');
+			console.log('p', domEle.parentElement.parentElement);
+			$(domEle.parentElement.parentElement).addClass('card-background-color');
 		} else if (clickedTag == 'ION-CARD-CONTENT') {
-			// console.log('ion-card', domEle.parentElement);
-			$(domEle.parentElement).css('border', '1px solid red !important');
+			console.log('ion-card', domEle.parentElement);
+			$(domEle.parentElement).addClass('card-background-color');
 		}
 
 		if (this.userSelectedOptions == []) {
@@ -122,11 +130,13 @@ export class QuestionsPage {
 			}
 		}
 
-		if (this.correctOptions.length == correctAnsLength) {
+		console.log('!@!', this.correctOptions.length, correctAnsLength, this.userSelectedOptions.length);
+		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
 			console.log(this.userSelectedOptions);
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: 'true'});
+			this.globals.quesNum++;
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: true});
 		} else {
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: 'false'});
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: false});
 		}		
 	}
 
