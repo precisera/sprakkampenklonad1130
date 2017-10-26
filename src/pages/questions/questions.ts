@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { QuestionresultsPage } from '../questionresults/questionresults';
 
 /**
  * Generated class for the QuestionsPage page.
@@ -77,6 +78,8 @@ export class QuestionsPage {
 	}
 
 	submitAndPushNextQues() {
+
+		this.navCtrl.push(QuestionresultsPage);
 
 	}
 
