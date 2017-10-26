@@ -48,11 +48,17 @@ export class FireDataProvider {
 		var categories = selection.cat; //Array
 		var levels = selection.lev; //Array
 
-		console.log(categories);
+		var questions: Array<string> = [];
+
+		// console.log(selection);
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
 			dbRef.orderByChild('Category 1').equalTo(categories[0]).on('value', (data) => {
-				console.log('QUESTIONS', data.val());
+				for (var i in data.val()) {
+					questions.push(data.val()[i]);
+				}
+				resolve(questions);
+				// console.log('QUESTIONS', data.val());
 			})
 		});
 	}

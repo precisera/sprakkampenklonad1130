@@ -27,11 +27,6 @@ export class OvaPage {
 	Stavning: boolean = false;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider) {
-
-		this.fireData.getCategories().then((categories: Array<string>) => {
-			 console.log(categories);
-		});
-		this.fireData.getAllQuestions();
 	}
 
 	ionViewDidLoad() {

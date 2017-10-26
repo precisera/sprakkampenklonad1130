@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { QuestionsPage } from '../questions/questions';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
@@ -24,7 +24,7 @@ export class LevelPage {
 	selectedCategories = [];
 	selectedLevels = [];
 	userSelection: any = {};
-	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl: LoadingController) {
 		this.selectedCategories = this.navParams.get('cat');
 		console.log(this.selectedCategories);
 	}
@@ -50,12 +50,20 @@ export class LevelPage {
 			this.selectedLevels.push('3');
 		}
 
-		this.userSelection.cat = this.selectedLevels;
-		this.userSelection.lev = this.selectedCategories;
+		this.userSelection.cat = this.selectedCategories;
+		this.userSelection.lev = this.selectedLevels;
 
-		this.fireData.getQuesBasedOnSelection(this.userSelection);
+		var loading =  this.loadingCtrl.create({
+			spinner: 'dots',
+			content: 'Getting Questions ...'
+		});
+		loading.present();
+		this.fireData.getQuesBasedOnSelection(this.userSelection).then((data) => {
+			loading.dismiss();
+			this.navCtrl.setRoot(QuestionsPage, {questions: data});
+		});
 		// console.log(this.userSelection);
-		// this.navCtrl.setRoot(QuestionsPage, {userSel: this.userSelection});
+		
 	}
 
 }
