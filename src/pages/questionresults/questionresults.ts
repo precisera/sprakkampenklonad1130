@@ -34,7 +34,7 @@ export class QuestionresultsPage {
   goToNextQues() {
     /*console.log(this.globals.quesNum);
     console.log(this.globals.questions);*/
-    this.navCtrl.push(QuestionsPage);
+    this.navCtrl.setRoot(QuestionsPage);
   }
 
 }

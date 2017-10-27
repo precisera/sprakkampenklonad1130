@@ -1,13 +1,16 @@
 <!-- FEEDBACK PAGE -->
-
-<ion-content style="padding-right: 11px;">
-     <div style="padding-top: 20px">
+<ion-header>
+  <div style="padding-top: 20px">
      <ion-buttons left>
             <button ion-button clear color="white" menuToggle>
                 <ion-icon style="font-size: 4.2rem !important;" name="menu"></ion-icon> <p class="menu">Meny</p>
             </button>
         </ion-buttons>
   </div>
+</ion-header>
+
+<ion-content style="padding-right: 11px;">
+     
     
         <h1 class="Tyck-till-om-Sprkka ">Tyck till om Språkkampen</h1>
         <p class="Vad-tycker-du-om-Va">Tyck till om Språkkampen</p>
@@ -24,7 +27,7 @@
         </textarea><br>
 
 
-        	<button (click)="saveComment()" type="submit" class="Submit-button" ion-button outline>
+        	<button (click)="saveComment()" block type="submit" class="Submit-button" ion-button outline>
 					Submit
 				</button>
 </ion-content>

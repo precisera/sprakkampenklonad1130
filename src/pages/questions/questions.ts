@@ -150,9 +150,9 @@ export class QuestionsPage {
 		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
 			console.log(this.userSelectedOptions);
 			this.globals.quesNum++;
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: true});
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true});
 		} else {
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: false});
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false});
 		}		
 	}
 
