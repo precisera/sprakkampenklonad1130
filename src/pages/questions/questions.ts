@@ -150,9 +150,10 @@ export class QuestionsPage {
 		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
 			console.log(this.userSelectedOptions);
 			this.globals.quesNum++;
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: true});
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description});
 		} else {
-			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: false});
+			this.globals.quesNum++;
+			this.navCtrl.push(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description});
 		}		
 	}
 
