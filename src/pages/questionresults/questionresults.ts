@@ -5,6 +5,8 @@ import { QuestionsPage } from '../questions/questions';
 
 import { GlobalsProvider } from '../../providers/globals/globals';
 
+import * as $ from 'jquery';
+
 
 /**
  * Generated class for the QuestionresultsPage page.
@@ -14,27 +16,58 @@ import { GlobalsProvider } from '../../providers/globals/globals';
  */
 
 @Component({
-  selector: 'page-questionresults',
-  templateUrl: 'questionresults.html',
+	selector: 'page-questionresults',
+	templateUrl: 'questionresults.html',
 })
 export class QuestionresultsPage {
 
 	answerCorrect: boolean; 
-	quesOptions: any;
+	quesOptions: Array<string> = [];
+	correctAns: Array<string> = [];
+	ansDesc: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
-  	this.answerCorrect = this.navParams.get('correctAnsGiven');
-  	this.quesOptions = ['En afton','Flera aftnar']
-  }
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
+		this.answerCorrect = this.navParams.get('correctAnsGiven');
+		this.quesOptions = this.navParams.get('options');
+		this.correctAns = this.navParams.get('correctAns');
+		this.ansDesc = this.navParams.get('ansDesc');
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuestionresultsPage');
-  }
+		this.diffCorrectOptions();
+	}
 
-  goToNextQues() {
-    /*console.log(this.globals.quesNum);
-    console.log(this.globals.questions);*/
-    this.navCtrl.push(QuestionsPage);
-  }
+	ionViewDidLoad() {
+		console.log('ionViewDidLoad QuestionresultsPage');
+	}
+
+	goToNextQues() {
+		/*console.log(this.globals.quesNum);
+		console.log(this.globals.questions);*/
+		this.navCtrl.push(QuestionsPage);
+	}
+
+	diffCorrectOptions() {
+		var showOptions = [];
+		var matched = false;
+		for (var i = 0; i < this.quesOptions.length; ++i) {
+			for (var j = 0; j < this.correctAns.length; ++j) {
+				if (this.quesOptions[i] == this.correctAns[j]) {
+					showOptions.push({option: this.quesOptions[i], backColor: 'green'});
+					// console.log(this.quesOptions[i], this.correctAns[j]);
+					matched = true;
+				}
+			}
+			if (!matched) {
+				showOptions.push({option: this.quesOptions[i], backColor: 'red'});
+			}
+			matched = false;
+
+		}
+
+		if (this.quesOptions.length == showOptions.length) {
+			this.quesOptions = showOptions;
+			console.log(this.quesOptions);
+		}
+		
+	}
 
 }

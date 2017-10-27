@@ -34,7 +34,7 @@ page-questionresults {
 
 	.answercard{
 		border-radius: 5px;
-		  background-color: #1675a3 !important;
+		  background-color: #1675a3;
 		  background-color: var(--nice-blue);
 		  box-shadow: 0 2px 4px 0 rgba(8, 77, 110, 0.5) !important;
 	}
@@ -70,6 +70,14 @@ page-questionresults {
 		  font-weight: 600;
 		  text-align: left;
 		  color: #afdc9b;
+	}
+
+	.correctOptions {
+		background-color: green;
+	}
+
+	.wrongOptions {
+		background-color: red;
 	}
 
 }
