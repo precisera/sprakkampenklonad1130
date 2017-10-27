@@ -60,7 +60,7 @@ export class QuestionresultsPage {
 	goToNextQues() {
 		/*console.log(this.globals.quesNum);
 		console.log(this.globals.questions);*/
-		this.navCtrl.push(QuestionsPage);
+		this.navCtrl.setRoot(QuestionsPage);
 	}
 
 	diffCorrectOptions() {
@@ -87,6 +87,5 @@ export class QuestionresultsPage {
 		}
 		
 	}
->>>>>>> a952d822fbd43cec4d47179f48567e1e075d389b
 
 }
