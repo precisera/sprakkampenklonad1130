@@ -35,8 +35,7 @@ export class QuestionsPage {
 	numOfQues: any = 0;
 	userSelectedOptions: any = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
-		
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {		
 
 		if (this.globals.quesNum == 0) {
 			this.questions = this.navParams.get('questions');
@@ -65,7 +64,10 @@ export class QuestionsPage {
 		this.description = this.questions[this.quesNum]['Answer'];
 		this.quesLevel = this.questions[this.quesNum]['Nivå'];
 		this.quesCat = this.questions[this.quesNum]['Category 1'];
-		this.quesOptions = this.questions[this.quesNum]['options'];
+
+		var shuffledOptions = _.shuffle(this.questions[this.quesNum]['options']);
+		this.quesOptions = shuffledOptions;		
+
 		this.correctOptions = this.questions[this.quesNum]['correctOptions'];
 
 		this.dispQuesNum = this.quesNum + 1;
@@ -112,7 +114,21 @@ export class QuestionsPage {
 			var eleExists = this.userSelectedOptions.includes(option);
 			console.log(eleExists);
 			if (eleExists) {
-				// Do Nothing
+				//If user already selected an option, and clicks the same, then uncheck the same option
+				console.log(this.userSelectedOptions);
+				_.remove(this.userSelectedOptions, (o) => {
+					return o == option;
+				});
+
+				if (clickedTag == 'P') {
+					console.log('p', domEle.parentElement.parentElement);
+					$(domEle.parentElement.parentElement).removeClass('card-background-color');
+				} else if (clickedTag == 'ION-CARD-CONTENT') {
+					console.log('ion-card', domEle.parentElement);
+					$(domEle.parentElement).removeClass('card-background-color');
+				}
+				console.log(this.userSelectedOptions);
+
 			} else {
 				this.userSelectedOptions.push(option);
 			}
