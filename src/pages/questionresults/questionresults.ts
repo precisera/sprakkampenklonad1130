@@ -69,13 +69,13 @@ export class QuestionresultsPage {
 		for (var i = 0; i < this.quesOptions.length; ++i) {
 			for (var j = 0; j < this.correctAns.length; ++j) {
 				if (this.quesOptions[i] == this.correctAns[j]) {
-					showOptions.push({option: this.quesOptions[i], backColor: 'green'});
+					showOptions.push({option: this.quesOptions[i], backColor: '#afdc9b'});
 					// console.log(this.quesOptions[i], this.correctAns[j]);
 					matched = true;
 				}
 			}
 			if (!matched) {
-				showOptions.push({option: this.quesOptions[i], backColor: 'red'});
+				showOptions.push({option: this.quesOptions[i], backColor: '#db9b9b'});
 			}
 			matched = false;
 

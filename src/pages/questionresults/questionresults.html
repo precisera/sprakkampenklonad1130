@@ -20,7 +20,7 @@
 <div *ngIf="!answerCorrect">
 	<p>Incorrect</p>
 	<div padding text-center>
-		<ion-icon name="md-close" color="wrong" style="font-size:41px"></ion-icon>
+		<ion-icon name="md-close" color="wrong" style="font-size:82px"></ion-icon>
 	</div>
 
 	<ion-grid>
@@ -32,7 +32,6 @@
 						</ion-card-content>
 					</ion-card>				
 				</ion-col>
-				<h4 class="ans-desc">{{ ansDesc }}</h4>
 			</ion-row>
 		</ion-grid>
 	
@@ -41,7 +40,7 @@
 <div *ngIf="answerCorrect">
 <p>Correct</p>
 <div padding text-center>
-	<ion-icon name="checkmark" color="lightgreygreen" style="font-size:41px"></ion-icon>
+	<ion-icon name="checkmark" color="lightgreygreen" style="font-size:82px"></ion-icon>
 </div>
 <ion-grid>
 			<ion-row align-items-center>
@@ -52,16 +51,19 @@
 						</ion-card-content>
 					</ion-card>				
 				</ion-col>
-			<h4 class="ans-desc">{{ ansDesc }}</h4>
+			
 			</ion-row>			
 		</ion-grid>
 		
 
 </div>
+<div padding>
+<p class="ans-desc">{{ ansDesc }}</p>
+</div>
 
 
-</ion-content>
-<ion-footer padding>
+
+<!-- <ion-footer padding> -->
   <div class="footerwrap">
 
   <ion-grid>
@@ -82,4 +84,5 @@
   </ion-row>
 </ion-grid>
       </div>
-</ion-footer>
+<!-- </ion-footer> -->
+</ion-content>
