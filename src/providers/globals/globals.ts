@@ -3,22 +3,28 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the GlobalsProvider provider.
+	Generated class for the GlobalsProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+	See https://angular.io/guide/dependency-injection for more info on providers
+	and Angular DI.
 */
 @Injectable()
 export class GlobalsProvider {
 	quesNum: any = 0;
 	questions: Array<string> = [];
 
-  constructor(public http: Http) {
-    console.log('Hello GlobalsProvider Provider');
-  }
+	anonymousLoggedIn: boolean = false;
+	anonymousUid: string = '';
 
-  clear() {
-  	this.quesNum = undefined;
-  }
+	constructor(public http: Http) {
+		console.log('Hello GlobalsProvider Provider');
+	}
+
+	clear() {
+		this.quesNum = undefined;
+		this.questions = undefined;
+		this.anonymousLoggedIn = undefined;
+		this.anonymousUid = undefined;
+	}
 
 }

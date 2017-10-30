@@ -20,6 +20,8 @@ import { VersusPage } from '../pages/versus/versus';
 import { FireDataProvider } from '../providers/fire-data/fire-data';
 import { GlobalsProvider } from '../providers/globals/globals';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -39,6 +41,7 @@ import { GlobalsProvider } from '../providers/globals/globals';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp,{mode: 'ios'}),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [

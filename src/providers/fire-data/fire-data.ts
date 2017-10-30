@@ -17,6 +17,17 @@ export class FireDataProvider {
 		console.log('Hello FireDataProvider Provider');
 	}
 
+	registerAnonymousUserDB(uid) {
+		return new Promise((resolve) => {
+			var dbRef = firebase.database().ref('users').child(uid);
+			dbRef.set({
+				anonymousId: uid
+			}, () => {
+				resolve();
+			});
+		});		
+	}
+
 	getAllQuestions() {
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
