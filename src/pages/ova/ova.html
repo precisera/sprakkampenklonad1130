@@ -27,7 +27,7 @@
 	<hr style="border-top: dotted 2px;position: relative;color: #328eba;margin-top: -12px;" />
 
 
-	<ion-card color="spelaColor" (click)="goToPractice()">
+	<ion-card color="spelaColor" (click)="getSavedQuestions()">
 		<ion-card-content tappable class="md-card"> 
 			<ion-grid>
 				<ion-row align-items-center>
@@ -39,7 +39,7 @@
 					</ion-col>
 					<ion-col col-10>
 						<div class="practicetitle" >Practice from saved cards</div>
-						<div class="practicesubtitle">You have 12 saved cards</div>
+						<div class="practicesubtitle">You have {{ savedQuestionsLength }} saved cards</div>
 					</ion-col>
 				</ion-row>
 			</ion-grid>

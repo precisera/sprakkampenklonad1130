@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LevelPage } from '../level/level';
+import { QuestionsPage } from '../questions/questions';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 
@@ -26,7 +27,15 @@ export class OvaPage {
 	Dialekt: boolean = false;
 	Stavning: boolean = false;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider) {
+	savedQuestionsLength;
+	savedQuestionsKeys: any = [];
+
+	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl :LoadingController) {
+		
+	}
+
+	ionViewWillEnter() {
+		this.getSavedQuestionsKeys();
 	}
 
 	ionViewDidLoad() {
@@ -60,5 +69,32 @@ export class OvaPage {
 			catSelectedByUser.push('Stavning & grammatik');
 		}
 		this.navCtrl.push(LevelPage, {cat: catSelectedByUser});
+	}
+
+	getSavedQuestionsKeys() {
+		var loader = this.loadingCtrl.create({
+			spinner: 'dots',
+			content: 'Loading'
+		});
+		loader.present();
+		this.fireData.getUserSelectedQuestionKeys().then((data) => {
+			if (!data) {
+				this.savedQuestionsLength = 0;
+			} else {
+				for (var i in data) {
+					this.savedQuestionsKeys.push(data[i]);
+				}
+				this.savedQuestionsLength = this.savedQuestionsKeys.length;
+			}
+			loader.dismiss();
+			
+		});
+	}
+
+	getSavedQuestions() {
+		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data) => {
+			console.log('jkahsdgfsuyg', data);
+			this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: data});
+		});
 	}
 }

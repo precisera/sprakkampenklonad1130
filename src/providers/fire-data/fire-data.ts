@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import * as firebase from 'firebase';
+import { GlobalsProvider } from '../../providers/globals/globals';
 
 /*
   Generated class for the FireDataProvider provider.
@@ -13,7 +14,7 @@ import * as firebase from 'firebase';
 @Injectable()
 export class FireDataProvider {
 
-	constructor(public http: Http) {
+	constructor(public http: Http, private globals: GlobalsProvider) {
 		console.log('Hello FireDataProvider Provider');
 	}
 
@@ -89,6 +90,50 @@ export class FireDataProvider {
 				});				
 			}	
 		});
+	}
+
+	saveUserSelectedQuestion(qid) {
+		var dbRef;
+		console.log('Globals UID', this.globals.anonymousUid, qid);
+		if (this.globals.anonymousUid) {
+			dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions/' + qid);
+			var newSavedQues = dbRef/*.push()*/;
+
+			newSavedQues.set({
+				qId: qid
+			}, () => {
+				console.log('Question Saved Successfully');
+			});
+
+		}		
+	}
+
+	getUserSelectedQuestionKeys() {
+		return new Promise((resolve, reject) => {
+			var dbRef;
+			if (this.globals.anonymousUid) {
+				dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions');
+				dbRef.on('value', (data) =>{
+					resolve(data.val());
+				});
+			}
+		});		
+	}
+
+	getUserSelectedQuestion(keys) {
+		var savedQuestions = [];
+		console.log(keys);
+		return new Promise((resolve) =>{
+			for (var i = 0; i < keys.length; ++i) {
+				console.log(keys[i])
+				var dbRef = firebase.database().ref('questions').child(keys[i].qId);
+				dbRef.on('value', (data) => {
+					savedQuestions.push(data.val());
+				});
+			}
+
+			resolve(savedQuestions);
+		})
 	}
 
 
