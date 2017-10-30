@@ -32,6 +32,7 @@ export class MyApp {
 
 	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fireData: FireDataProvider, private globals: GlobalsProvider, private storage: Storage) {
 		this.initializeApp();
+		console.log('GLOBALS', this.globals);
 
 		// used for an example of ngFor and navigation
 		this.pages = [
@@ -47,8 +48,8 @@ export class MyApp {
 
 	initializeApp() {
 		this.initializeFirebase();
-		console.log('An Login1');
 		this.doAnonymousLogin();
+
 		this.platform.ready().then(() => {
 			// Okay, so the platform is ready and our plugins are available.
 			// Here you can do any higher level native things you might need.
@@ -77,17 +78,19 @@ export class MyApp {
 	}
 
 	doAnonymousLogin() {
-		console.log('An Login2');
 		firebase.auth().signInAnonymously().then((data) => {
 			firebase.auth().onAuthStateChanged((user) => {
 				if (user) {
 					// User is signed in.
 					var isAnonymous = user.isAnonymous;
 					var uid = user.uid;
-					this.fireData.registerAnonymousUserDB(uid).then(() => {
-						this.globals.anonymousUid = user.uid;
-						this.storage.set('anonymousUid', user.uid);
-					});
+					if (!this.globals.anonymousLoggedIn) {
+						this.fireData.registerAnonymousUserDB(uid).then(() => {
+							this.globals.anonymousLoggedIn = true;
+							this.globals.anonymousUid = user.uid;
+							this.storage.set('anonymousUid', user.uid);
+						});
+					}
 				} else {
 					console.log('User Signed Out');
 				}

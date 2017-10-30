@@ -13,6 +13,7 @@ export class GlobalsProvider {
 	quesNum: any = 0;
 	questions: Array<string> = [];
 
+	anonymousLoggedIn: boolean = false;
 	anonymousUid: string = '';
 
 	constructor(public http: Http) {
@@ -22,6 +23,7 @@ export class GlobalsProvider {
 	clear() {
 		this.quesNum = undefined;
 		this.questions = undefined;
+		this.anonymousLoggedIn = undefined;
 		this.anonymousUid = undefined;
 	}
 
