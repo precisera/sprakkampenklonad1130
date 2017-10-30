@@ -9,7 +9,7 @@
   <div style="padding-top: 20px">
      <ion-buttons left>
             <button ion-button clear color="white" menuToggle>
-                <ion-icon style="font-size: 4.2rem !important;" name="menu"></ion-icon> <p class="menu">Meny</p>
+                <ion-icon style="font-size: 4.2rem !important;" name="menu"></ion-icon>
             </button>
         </ion-buttons>
   </div>
@@ -18,7 +18,7 @@
 <ion-content padding>
 
 <div *ngIf="!answerCorrect">
-	<p>Incorrect</p>
+	<p>Oj - du svarade fel</p>
 	<div padding text-center>
 		<ion-icon name="md-close" color="wrong" style="font-size:82px"></ion-icon>
 	</div>
@@ -38,7 +38,7 @@
 </div>
 
 <div *ngIf="answerCorrect">
-<p>Correct</p>
+<p>Du svarade rätt!</p>
 <div padding text-center>
 	<ion-icon name="checkmark" color="lightgreygreen" style="font-size:82px"></ion-icon>
 </div>
@@ -69,7 +69,7 @@
   <ion-grid>
     <ion-row>
     	<ion-col>
-  <button ion-button block class="quesbutton" (click)="goToNextQues()"> <span class="quesbuttontext">Next Question</span></button>
+  <button ion-button block class="quesbutton" (click)="goToNextQues()"> <span class="quesbuttontext">Nästa fråga</span></button>
 </ion-col>
 </ion-row>
 <ion-row>
