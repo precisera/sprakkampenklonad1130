@@ -74,6 +74,7 @@ export class MyApp {
 	doAnonymousLogin() {
 		console.log('An Login2');
 		firebase.auth().signInAnonymously().catch(function(error) {
+			
 			if (!error) {
 				firebase.auth().onAuthStateChanged(function(user) {
 					if (user) {
