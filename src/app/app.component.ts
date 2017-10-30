@@ -9,6 +9,11 @@ import { OvaPage } from '../pages/ova/ova';
 import { YourProgressPage } from '../pages/your-progress/your-progress';
 
 import { FireDataProvider } from '../providers/fire-data/fire-data';
+import { GlobalsProvider } from '../providers/globals/globals';
+
+import { Storage } from '@ionic/storage';
+
+
 
 import * as firebase from 'firebase';
 
@@ -25,7 +30,7 @@ export class MyApp {
 
 	pages: Array<{title: string, component: any}>;
 
-	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fireData: FireDataProvider) {
+	constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private fireData: FireDataProvider, private globals: GlobalsProvider, private storage: Storage) {
 		this.initializeApp();
 
 		// used for an example of ngFor and navigation
@@ -73,26 +78,26 @@ export class MyApp {
 
 	doAnonymousLogin() {
 		console.log('An Login2');
-		firebase.auth().signInAnonymously().catch(function(error) {
-			
-			if (!error) {
-				firebase.auth().onAuthStateChanged(function(user) {
-					if (user) {
+		firebase.auth().signInAnonymously().then((data) => {
+			firebase.auth().onAuthStateChanged((user) => {
+				if (user) {
 					// User is signed in.
 					var isAnonymous = user.isAnonymous;
 					var uid = user.uid;
-					console.log('Anonymous Success => ');
-					} else {
+					this.fireData.registerAnonymousUserDB(uid).then(() => {
+						this.globals.anonymousUid = user.uid;
+						this.storage.set('anonymousUid', user.uid);
+					});
+				} else {
 					console.log('User Signed Out');
-					}
-					// ...
-				});
-			} else {
-				// Handle Errors here.
-				var errorCode = error.code;
-				var errorMessage = error.message;
-				console.log('Anonymous Error => ', errorCode, errorMessage);
-			}
+				}
+				// ...
+			});
+		}).catch((error) => {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			console.log('Anonymous Error => ', errorCode, errorMessage);
 		});
 	}
 }
