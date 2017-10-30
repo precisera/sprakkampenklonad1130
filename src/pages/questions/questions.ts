@@ -6,6 +6,8 @@ import * as $ from 'jquery';
 import * as _ from 'lodash';
 
 import { GlobalsProvider } from '../../providers/globals/globals';
+import { FireDataProvider } from '../../providers/fire-data/fire-data';
+
 
 
 /**
@@ -35,7 +37,7 @@ export class QuestionsPage {
 	numOfQues: any = 0;
 	userSelectedOptions: any = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {		
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider) {		
 
 		if (this.globals.quesNum == 0) {
 			this.questions = this.navParams.get('questions');
@@ -47,6 +49,10 @@ export class QuestionsPage {
 			console.log(this.globals.questions);
 		}
 		this.numOfQues = this.questions.length;
+
+		if (this.navParams.get('from') == 'savedQuestions') {
+			this.questions = this.navParams.get('questions');
+		}
 
 		this.groupQuesOptions();
 		this.showQues();
@@ -155,6 +161,11 @@ export class QuestionsPage {
 			this.globals.quesNum++;
 			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description});
 		}		
+	}
+
+	saveQuestion() {
+		var quesToSave = this.questions[this.quesNum]['qId'];
+		this.fireData.saveUserSelectedQuestion(quesToSave);		
 	}
 
  
