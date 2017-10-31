@@ -48,7 +48,12 @@ export class MyApp {
 
 	initializeApp() {
 		this.initializeFirebase();
-		this.doAnonymousLogin();
+		this.storage.get('anonymousUid').then((data) => {
+			if (!data) {
+				this.doAnonymousLogin();
+			}
+			console.log(data);
+		});	
 
 		this.platform.ready().then(() => {
 			// Okay, so the platform is ready and our plugins are available.
@@ -84,12 +89,12 @@ export class MyApp {
 					// User is signed in.
 					var isAnonymous = user.isAnonymous;
 					var uid = user.uid;
-					if (!this.globals.anonymousLoggedIn) {
+					if (!this.globals.anonymousLoggedIn) {						
 						this.fireData.registerAnonymousUserDB(uid).then(() => {
 							this.globals.anonymousLoggedIn = true;
 							this.globals.anonymousUid = user.uid;
 							this.storage.set('anonymousUid', user.uid);
-						});
+						});												
 					}
 				} else {
 					console.log('User Signed Out');

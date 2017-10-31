@@ -94,7 +94,10 @@ export class OvaPage {
 	getSavedQuestions() {
 		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data) => {
 			console.log('jkahsdgfsuyg', data);
-			this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: data});
+			console.log('!@#$%^&*()_**(*&%^$%#@$');
+			if (data) {
+				this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: data});
+			}
 		});
 	}
 }
