@@ -38,30 +38,35 @@ export class QuestionsPage {
 	userSelectedOptions: any = [];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider, public toastCtrl: ToastController) {		
+	}
 
-		if (this.globals.quesNum == 0) {
-			this.questions = this.navParams.get('questions');
-			this.globals.questions = this.navParams.get('questions');
-		}else if (this.globals.quesNum != 0) {
-			this.quesNum = this.globals.quesNum;
-			this.questions = this.globals.questions;
-
-			console.log(this.globals.questions);
-		}
-		this.numOfQues = this.questions.length;
-
+	ionViewWillEnter() {
+		console.log('WillEnter QuestionsPage')
 		if (this.navParams.get('from') == 'savedQuestions') {
 			this.questions = [];
 			this.quesNum = 0;
 			this.questions = this.navParams.get('questions');
 
-			console.log('SavedQUES => ', this.questions);
+			console.log('SavedQUES => ', this.questions[0]);
+		} else {
+			if (this.globals.quesNum == 0) {
+				this.questions = this.navParams.get('questions');
+				this.globals.questions = this.navParams.get('questions');
+			}else if (this.globals.quesNum != 0) {
+				this.quesNum = this.globals.quesNum;
+				this.questions = this.globals.questions;
+
+				console.log(this.globals.questions);
+			}
+			this.numOfQues = this.questions.length;
 		}
 
-		this.groupQuesOptions();
-		this.showQues();
+		if (this.questions) {
+			this.groupQuesOptions();
+			this.showQues();
 
-		console.log('QUES => ', this.questions);
+			console.log('QUES => ', this.questions[0]);
+		}
 	}
 
 	ionViewDidLoad() {
@@ -170,7 +175,7 @@ export class QuestionsPage {
 	saveQuestion() {
 		var quesToSave = this.questions[this.quesNum]['qId'];
 		this.fireData.saveUserSelectedQuestion(quesToSave).then(() => {
-			this.presentToast('Question Saved.');
+			this.presentToast('Question Saved');
 		});		
 	}
 
