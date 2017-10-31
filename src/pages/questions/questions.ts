@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { QuestionresultsPage } from '../questionresults/questionresults';
 
 import * as $ from 'jquery';
@@ -37,7 +37,7 @@ export class QuestionsPage {
 	numOfQues: any = 0;
 	userSelectedOptions: any = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider) {		
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider, public toastCtrl: ToastController) {		
 
 		if (this.globals.quesNum == 0) {
 			this.questions = this.navParams.get('questions');
@@ -51,7 +51,11 @@ export class QuestionsPage {
 		this.numOfQues = this.questions.length;
 
 		if (this.navParams.get('from') == 'savedQuestions') {
+			this.questions = [];
+			this.quesNum = 0;
 			this.questions = this.navParams.get('questions');
+
+			console.log('SavedQUES => ', this.questions);
 		}
 
 		this.groupQuesOptions();
@@ -165,8 +169,22 @@ export class QuestionsPage {
 
 	saveQuestion() {
 		var quesToSave = this.questions[this.quesNum]['qId'];
-		this.fireData.saveUserSelectedQuestion(quesToSave);		
+		this.fireData.saveUserSelectedQuestion(quesToSave).then(() => {
+			this.presentToast('Question Saved.');
+		});		
 	}
 
- 
+	presentToast(msg) {
+		const toast = this.toastCtrl.create({
+		message: msg,
+		duration: 1000,
+		position: 'bottom'
+		});
+
+		toast.onDidDismiss(() => {
+		console.log('Dismissed toast');
+		});
+
+		toast.present();
+	} 
 }

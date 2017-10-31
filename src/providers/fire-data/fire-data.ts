@@ -5,6 +5,9 @@ import 'rxjs/add/operator/map';
 import * as firebase from 'firebase';
 import { GlobalsProvider } from '../../providers/globals/globals';
 
+import { Storage } from '@ionic/storage';
+
+
 /*
   Generated class for the FireDataProvider provider.
 
@@ -14,7 +17,7 @@ import { GlobalsProvider } from '../../providers/globals/globals';
 @Injectable()
 export class FireDataProvider {
 
-	constructor(public http: Http, private globals: GlobalsProvider) {
+	constructor(public http: Http, private globals: GlobalsProvider, private storage: Storage) {
 		console.log('Hello FireDataProvider Provider');
 	}
 
@@ -93,19 +96,31 @@ export class FireDataProvider {
 	}
 
 	saveUserSelectedQuestion(qid) {
-		var dbRef;
-		console.log('Globals UID', this.globals.anonymousUid, qid);
-		if (this.globals.anonymousUid) {
-			dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions/' + qid);
-			var newSavedQues = dbRef/*.push()*/;
+		return new Promise((resolve) => {
+			var dbRef;
+			console.log('Globals UID', this.globals.anonymousUid, qid);
+			if (this.globals.anonymousUid) {
+				dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions/' + qid);
+				var newSavedQues = dbRef/*.push()*/;
 
-			newSavedQues.set({
-				qId: qid
-			}, () => {
-				console.log('Question Saved Successfully');
-			});
+				newSavedQues.set({
+					qId: qid
+				}, () => {
+					resolve();
+				});
+			} else {
+				this.storage.get('anonymousUid').then((data) => {
+					dbRef = firebase.database().ref('/users/' + data).child('savedQuestions/' + qid);
+					var newSavedQues = dbRef/*.push()*/;
 
-		}		
+					newSavedQues.set({
+						qId: qid
+					}, () => {
+						resolve();
+					});
+				});
+			}
+		});
 	}
 
 	getUserSelectedQuestionKeys() {
@@ -115,6 +130,13 @@ export class FireDataProvider {
 				dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions');
 				dbRef.on('value', (data) =>{
 					resolve(data.val());
+				});
+			} else {
+				this.storage.get('anonymousUid').then((data) => {
+					dbRef = firebase.database().ref('/users/' + data).child('savedQuestions');
+					dbRef.on('value', (data) =>{
+						resolve(data.val());
+					});
 				});
 			}
 		});		
