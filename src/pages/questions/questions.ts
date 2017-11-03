@@ -44,6 +44,7 @@ export class QuestionsPage {
 	flow: string = '';
 
 	tick: any;
+	timer: any;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 		this.startTimer();
@@ -140,8 +141,11 @@ export class QuestionsPage {
 	}
 
 	submitCheckAns() {
+		// Stop Timer
+		this.stopTimer();
 		var ans: any;
 		var correctAnsLength: any = 0;;
+		console.log('Selected Answers => ', this.userSelectedOptions)
 		for (var i = 0; i < this.correctOptions.length; ++i) {
 			ans = this.correctOptions[i];
 			var checkAns = this.userSelectedOptions.includes(ans);
@@ -201,6 +205,7 @@ export class QuestionsPage {
 			}			
 			this.numOfQues = this.questions.length;
 			console.log('SavedQUES => ', this.questions);
+
 		} else if (this.navParams.get('flow') == 'savedQuestions_timeup') {
 			console.log('!@!@!@!@!@', 'savedQuestions_timeup');
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
@@ -220,7 +225,8 @@ export class QuestionsPage {
 				this.groupQuesOptions();
 				this.showQues();*/
 			}
-			this.numOfQues = this.questions.length;	
+			this.numOfQues = this.questions.length;
+
 		} else {
 			this.flow = 'practiceQuestions';
 			if (this.globals.quesNum == 0) {
@@ -244,7 +250,7 @@ export class QuestionsPage {
 	}
 
 	startTimer() {
-		Observable.timer(0, 1000)
+		this.timer = Observable.timer(0, 1000)
 		.map(value => 150 - value)
 		.takeWhile(value => value >= 0)
 		.subscribe((t) => {
@@ -265,7 +271,11 @@ export class QuestionsPage {
 				});
 				timeUpAlert.present();
 			}
-			console.log(t);
+			// console.log(t);
 		});
+	}
+
+	stopTimer() {
+		this.timer.unsubscribe();
 	}
 }

@@ -64,9 +64,28 @@ export class QuestionresultsPage {
 	goToNextQues() {
 		/*console.log(this.globals.quesNum);
 		console.log(this.globals.questions);*/		
-
+		console.log('FLOW', this.flow);
 		
 		if (this.flow == 'savedQuestions') {
+			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
+				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				var alert = this.alertCtrl.create({
+					message: 'You have attempted all Saved Questions.',
+					buttons: [
+						{
+							text: 'Ok',
+							role: 'cancel'
+						}
+					]
+				});
+				alert.present();
+			} else {
+				console.log('Not Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				this.navCtrl.setRoot(QuestionsPage, {flow: this.flow});
+			}
+		} else if (this.flow == 'practiceQuestions') {
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
 				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
 

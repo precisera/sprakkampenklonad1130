@@ -76,21 +76,20 @@
   <div class="footerwrap">
 
   <ion-grid>
-    <ion-row>
-    	<ion-col>
-  <button ion-button block class="quesbutton" (click)="submitCheckAns()"> <span class="quesbuttontext">Skicka svar</span></button>
-</ion-col>
-</ion-row>
-<ion-row>
-  <ion-col>
-    <button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Ge Upp</span></button>
+	<ion-row>
+		<ion-col>
+			<button ion-button block class="quesbutton" (click)="submitCheckAns()" [disabled]="userSelectedOptions.length == 0"> <span class="quesbuttontext">Skicka svar</span></button>
+		</ion-col>
+	</ion-row>
+	<ion-row>
+		<ion-col>
+			<button ion-button block outline class="quesalternatebutton" (click)="goToPractice()"> <span class="quesalternatebuttontext">Ge Upp</span></button>
+		</ion-col>
+		<ion-col>
 
-  </ion-col>
-  <ion-col>
-  
-  <button ion-button block outline class="quesalternatebutton" (click)="saveQuestion()"> <span class="quesalternatebuttontext">Spara</span></button>
-  </ion-col>
-  </ion-row>
+		<button ion-button block outline class="quesalternatebutton" (click)="saveQuestion()"> <span class="quesalternatebuttontext">Spara</span></button>
+		</ion-col>
+	</ion-row>
 </ion-grid>
       </div>
 <!-- </ion-footer> -->
