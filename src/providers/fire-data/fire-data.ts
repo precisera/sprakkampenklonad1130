@@ -128,13 +128,13 @@ export class FireDataProvider {
 			var dbRef;
 			if (this.globals.anonymousUid) {
 				dbRef = firebase.database().ref('/users/' + this.globals.anonymousUid).child('savedQuestions');
-				dbRef.on('value', (data) =>{
+				dbRef.on('value', (data: any) =>{
 					resolve(data.val());
 				});
 			} else {
 				this.storage.get('anonymousUid').then((data) => {
 					dbRef = firebase.database().ref('/users/' + data).child('savedQuestions');
-					dbRef.on('value', (data) =>{
+					dbRef.on('value', (data: any) =>{
 						resolve(data.val());
 					});
 				});

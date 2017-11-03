@@ -22,6 +22,8 @@ import { GlobalsProvider } from '../providers/globals/globals';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+import { PipesModule } from '../pipes/pipes.module'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -35,13 +37,13 @@ import { IonicStorageModule } from '@ionic/storage';
     LevelPage,
     QuestionsPage,
     QuestionresultsPage
-
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp,{mode: 'ios'}),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

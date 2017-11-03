@@ -92,11 +92,13 @@ export class OvaPage {
 	}
 
 	getSavedQuestions() {
-		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data) => {
-			console.log('jkahsdgfsuyg', data);
-			if (data) {
-				this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: data});
+		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data: any) => {
+			var savedQuestions: Array<object> = data;
+			setTimeout(() => {
+			if (data.length > 0) {				
+					this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: savedQuestions});				
 			}
+			}, 1000);
 		});
 	}
 }
