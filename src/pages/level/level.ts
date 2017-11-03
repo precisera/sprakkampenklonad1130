@@ -60,7 +60,7 @@ export class LevelPage {
 		loading.present();
 		this.fireData.getQuesBasedOnSelection(this.userSelection).then((data) => {
 			loading.dismiss();
-			this.navCtrl.setRoot(QuestionsPage, {questions: data});
+			this.navCtrl.setRoot(QuestionsPage, {questions: data, flow: 'practiceQuestions'});
 		});
 		// console.log(this.userSelection);
 		

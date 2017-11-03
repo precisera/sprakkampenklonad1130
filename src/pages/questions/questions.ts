@@ -194,6 +194,7 @@ export class QuestionsPage {
 		console.log('Cons', this.navParams.get('flow'), this.globals.savedQuesNum);
 		this.questions = [];
 		if (this.navParams.get('from') == 'savedQuestions' || this.navParams.get('flow') == 'savedQuestions') {
+			console.log('Cons1', this.navParams.get('flow'), this.globals.savedQuesNum);
 			this.flow = 'savedQuestions';
 			if (this.globals.savedQuesNum == 0) {
 				this.quesNum = this.globals.savedQuesNum;
@@ -207,6 +208,8 @@ export class QuestionsPage {
 			console.log('SavedQUES => ', this.questions);
 
 		} else if (this.navParams.get('flow') == 'savedQuestions_timeup') {
+			this.flow = this.navParams.get('flow');
+			console.log('Cons2', this.navParams.get('flow'), this.globals.savedQuesNum);
 			console.log('!@!@!@!@!@', 'savedQuestions_timeup');
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
 				console.log('End Reached');
@@ -227,16 +230,24 @@ export class QuestionsPage {
 			}
 			this.numOfQues = this.questions.length;
 
-		} else {
+		} else if (this.navParams.get('flow') == 'practiceQuestions') {
+			console.log('Cons3', this.navParams.get('flow'), this.globals.savedQuesNum);
 			this.flow = 'practiceQuestions';
 			if (this.globals.quesNum == 0) {
+				console.log('this.globals.quesNum == 0');
 				this.questions = this.navParams.get('questions');
+				console.log(this.questions);
 				this.globals.questions = this.navParams.get('questions');
+				this.globals.quesNum++;
 			}else if (this.globals.quesNum != 0) {
+				console.log('this.globals.quesNum != 0');
+
 				this.quesNum = this.globals.quesNum;
 				this.questions = this.globals.questions;
 
 				console.log(this.globals.questions);
+				this.globals.quesNum++;
+				
 			}
 			this.numOfQues = this.questions.length;
 		}
@@ -251,7 +262,7 @@ export class QuestionsPage {
 
 	startTimer() {
 		this.timer = Observable.timer(0, 1000)
-		.map(value => 150 - value)
+		.map(value => 5 - value)
 		.takeWhile(value => value >= 0)
 		.subscribe((t) => {
 			this.tick = t
@@ -263,7 +274,7 @@ export class QuestionsPage {
 						{
 							text: 'OK',
 							handler: () => {
-								this.navCtrl.setRoot(this.navCtrl.getActive().component, {flow: 'savedQuestions_timeup'});
+								this.navCtrl.setRoot(this.navCtrl.getActive().component, {flow: this.flow});
 							}
 
 						}
