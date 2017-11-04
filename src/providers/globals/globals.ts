@@ -12,6 +12,8 @@ import 'rxjs/add/operator/map';
 export class GlobalsProvider {
 	quesNum: any = 0;
 	questions: Array<string> = [];
+
+	savedQuesNum: any = 0;
 	savedQuestions: Array<string> = [];
 
 	anonymousLoggedIn: boolean = false;

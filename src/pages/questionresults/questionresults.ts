@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { QuestionsPage } from '../questions/questions';
 
@@ -44,11 +44,15 @@ export class QuestionresultsPage {
 	correctAns: Array<string> = [];
 	ansDesc: any;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
+	flow: string;
+
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public alertCtrl: AlertController) {
 		this.answerCorrect = this.navParams.get('correctAnsGiven');
 		this.quesOptions = this.navParams.get('options');
 		this.correctAns = this.navParams.get('correctAns');
 		this.ansDesc = this.navParams.get('ansDesc');
+
+		this.flow = this.navParams.get('flow');
 
 		this.diffCorrectOptions();
 	}
@@ -59,8 +63,49 @@ export class QuestionresultsPage {
 
 	goToNextQues() {
 		/*console.log(this.globals.quesNum);
-		console.log(this.globals.questions);*/
-		this.navCtrl.setRoot(QuestionsPage);
+		console.log(this.globals.questions);*/		
+		console.log('FLOW', this.flow);
+		
+		if (this.flow == 'savedQuestions') {
+			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
+				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				var alert = this.alertCtrl.create({
+					message: 'You have attempted all Saved Questions.',
+					buttons: [
+						{
+							text: 'Ok',
+							role: 'cancel'
+						}
+					]
+				});
+				alert.present();
+			} else {
+				console.log('Not Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				this.navCtrl.setRoot(QuestionsPage, {flow: this.flow});
+			}
+		} else if (this.flow == 'practiceQuestions') {
+			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
+				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				var alert = this.alertCtrl.create({
+					message: 'You have attempted all Saved Questions.',
+					buttons: [
+						{
+							text: 'Ok',
+							role: 'cancel'
+						}
+					]
+				});
+				alert.present();
+			} else {
+				console.log('Not Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
+
+				this.navCtrl.setRoot(QuestionsPage, {flow: this.flow});
+			}
+		}
+		
 	}
 
 	diffCorrectOptions() {
