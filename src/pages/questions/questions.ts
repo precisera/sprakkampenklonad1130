@@ -61,6 +61,11 @@ export class QuestionsPage {
 		
 	}
 
+	ionViewDidLeave() {
+		// Stop Timer
+		this.stopTimer();
+	}
+
 	showQues() {
 		//contains single question object at a time
 		console.log(this.questions);
@@ -262,7 +267,7 @@ export class QuestionsPage {
 
 	startTimer() {
 		this.timer = Observable.timer(0, 1000)
-		.map(value => 5 - value)
+		.map(value => 150 - value)
 		.takeWhile(value => value >= 0)
 		.subscribe((t) => {
 			this.tick = t
