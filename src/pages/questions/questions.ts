@@ -160,15 +160,18 @@ export class QuestionsPage {
 		}
 
 		console.log('!@!', this.correctOptions.length, correctAnsLength, this.userSelectedOptions.length);
+		
+		// Ans may be right or wrong, not care, increment is necessary
+		this.checkFlow();
 		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
 			console.log(this.userSelectedOptions);
-			this.globals.quesNum++;
-			this.globals.savedQuesNum++;
+			/*this.globals.quesNum++;
+			this.globals.savedQuesNum++;*/
 
 			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow});
 		} else {
-			this.globals.quesNum++;
-			this.globals.savedQuesNum++;
+			/*this.globals.quesNum++;
+			this.globals.savedQuesNum++;*/
 
 			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow});
 		}		
@@ -293,5 +296,21 @@ export class QuestionsPage {
 
 	stopTimer() {
 		this.timer.unsubscribe();
+	}
+
+	checkFlow() {
+		switch(this.flow) {
+			case 'savedQuestions':
+				this.globals.savedQuesNum++;
+				break;
+			case 'savedQuestions_timeup':
+				this.globals.savedQuesNum++;
+				break;
+			case 'practiceQuestions':
+				this.globals.quesNum++;
+				break;
+			default:
+				console.log('Match Not Found');
+		}
 	}
 }
