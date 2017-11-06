@@ -6,6 +6,8 @@ import { ResultPage } from '../result/result';
 
 
 import { GlobalsProvider } from '../../providers/globals/globals';
+import { TimerFormatPipe } from '../../pipes/timer-format/timer-format';
+
 
 import * as $ from 'jquery';
 
@@ -27,14 +29,21 @@ export class QuestionresultsPage {
 	quesOptions: Array<string> = [];
 	correctAns: Array<string> = [];
 	ansDesc: any;
+	timeTaken: any;
 
 	flow: string;
+	quesMarks: number = 0;
+	thisQuesMarks: number = 0;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public alertCtrl: AlertController) {
 		this.answerCorrect = this.navParams.get('correctAnsGiven');
 		this.quesOptions = this.navParams.get('options');
 		this.correctAns = this.navParams.get('correctAns');
 		this.ansDesc = this.navParams.get('ansDesc');
+		this.timeTaken = this.navParams.get('timeTaken');
+		this.thisQuesMarks = this.navParams.get('thisQuesMarks');
+
+		this.quesMarks = this.globals.marks;
 
 		this.flow = this.navParams.get('flow');
 
@@ -42,20 +51,20 @@ export class QuestionresultsPage {
 	}
 
 	ionViewDidLoad() {
-		console.log('ionViewDidLoad QuestionresultsPage');
+		console.log('ionViewDidLoad QuestionresultsPage', this.timeTaken, 'Marks', this.globals.marks);
 	}
 
 	goToNextQues() {
 		/*console.log(this.globals.quesNum);
 		console.log(this.globals.questions);*/		
 		console.log('FLOW', this.flow);
-		
+
 		if (this.flow == 'savedQuestions') {
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
 				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
 				
 				this.navCtrl.setRoot(ResultPage, {flow: this.flow});
-				
+
 				/*var alert = this.alertCtrl.create({
 					message: 'You have attempted all Saved Questions.',
 					buttons: [
@@ -72,7 +81,7 @@ export class QuestionresultsPage {
 				this.navCtrl.setRoot(QuestionsPage, {flow: this.flow});
 			}
 		} else if (this.flow == 'practiceQuestions') {
-			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
+			if (this.globals.questions.length == this.globals.quesNum) {
 				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
 
 				var alert = this.alertCtrl.create({
@@ -126,4 +135,25 @@ export class QuestionresultsPage {
 		// });		
 	}
 
+	addUserProgressDetails() {
+		var timeTaken = this.timeTaken;
+		var marksGained = this.globals.marks;
+	}
+
+	/*checkFlow() {
+		switch(this.flow) {
+			case 'savedQuestions':
+				this.totalQuesNum = this.globals.savedQuesNum;
+				this.correctQues = this.globals.correctSavedQuestionsNum;
+				break;
+			case 'savedQuestions_timeup':
+				break;
+			case 'practiceQuestions':
+				this.totalQuesNum = this.globals.savedQuesNum;
+				this.correctQues = this.globals.correctSavedQuestionsNum;
+				break;
+			default:
+				console.log('Match Not Found');
+		}
+	}*/
 }
