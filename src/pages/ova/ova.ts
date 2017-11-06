@@ -5,6 +5,8 @@ import { LevelPage } from '../level/level';
 import { QuestionsPage } from '../questions/questions';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
+import { GlobalsProvider } from '../../providers/globals/globals';
+
 
 
 
@@ -30,7 +32,7 @@ export class OvaPage {
 	savedQuestionsLength;
 	savedQuestionsKeys: any = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl :LoadingController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl :LoadingController, private globals: GlobalsProvider) {
 		
 	}
 
@@ -41,6 +43,7 @@ export class OvaPage {
 	ionViewDidLoad() {
 		console.log('!@!@!@!@!@!@');
 		console.log('ionViewDidLoad ÖvaPage');
+		this.reInitialiseGlobalTrackingVariables();
 	}
 
 	checkNg() {
@@ -100,5 +103,10 @@ export class OvaPage {
 			}
 			}, 1000);
 		});
+	}
+
+	reInitialiseGlobalTrackingVariables() {
+		this.globals.quesNum = 0;
+		this.globals.savedQuesNum = 0;
 	}
 }

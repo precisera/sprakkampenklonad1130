@@ -45,6 +45,11 @@ export class QuestionsPage {
 
 	tick: any;
 	timer: any;
+	timerVal: any = 170;
+	timeTaken: any;
+
+	quesMarks: number;
+	ansIsCorrect: boolean = null;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 		this.startTimer();
@@ -71,7 +76,10 @@ export class QuestionsPage {
 		console.log(this.questions);
 		this.question = this.questions[this.quesNum]['Question'];
 		this.description = this.questions[this.quesNum]['Answer'];
+
 		this.quesLevel = this.questions[this.quesNum]['Nivå'];
+		this.quesMarks = Number(this.questions[this.quesNum]['Nivå']);
+
 		this.quesCat = this.questions[this.quesNum]['Category 1'];
 
 		var shuffledOptions = _.shuffle(this.questions[this.quesNum]['options']);
@@ -148,6 +156,7 @@ export class QuestionsPage {
 	submitCheckAns() {
 		// Stop Timer
 		this.stopTimer();
+
 		var ans: any;
 		var correctAnsLength: any = 0;;
 		console.log('Selected Answers => ', this.userSelectedOptions)
@@ -160,20 +169,28 @@ export class QuestionsPage {
 		}
 
 		console.log('!@!', this.correctOptions.length, correctAnsLength, this.userSelectedOptions.length);
+
 		
-		// Ans may be right or wrong, not care, increment is necessary
-		this.checkFlow();
 		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
+			this.ansIsCorrect = true;
 			console.log(this.userSelectedOptions);
 			/*this.globals.quesNum++;
 			this.globals.savedQuesNum++;*/
+			this.addUserMarks();
 
-			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow});
+			// Ans may be right or wrong, not care, increment is necessary
+			this.checkFlow();			
+
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks});
 		} else {
 			/*this.globals.quesNum++;
 			this.globals.savedQuesNum++;*/
+			this.ansIsCorrect = false;
+			// Ans may be right or wrong, not care, increment is necessary
 
-			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow});
+			this.checkFlow();
+
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks});
 		}		
 	}
 
@@ -246,7 +263,7 @@ export class QuestionsPage {
 				this.questions = this.navParams.get('questions');
 				console.log(this.questions);
 				this.globals.questions = this.navParams.get('questions');
-				this.globals.quesNum++;
+				// this.globals.quesNum++;
 			}else if (this.globals.quesNum != 0) {
 				console.log('this.globals.quesNum != 0');
 
@@ -254,7 +271,7 @@ export class QuestionsPage {
 				this.questions = this.globals.questions;
 
 				console.log(this.globals.questions);
-				this.globals.quesNum++;
+				// this.globals.quesNum++;
 				
 			}
 			this.numOfQues = this.questions.length;
@@ -270,13 +287,14 @@ export class QuestionsPage {
 
 	startTimer() {
 		this.timer = Observable.timer(0, 1000)
-		.map(value => 170 - value)
+		.map(value => this.timerVal - value)
 		.takeWhile(value => value >= 0)
 		.subscribe((t) => {
 			this.tick = t
 			if (t == 0) {
 				this.globals.savedQuesNum++;
 				var timeUpAlert = this.alertCtrl.create({
+
 					title: 'Sorry, Times Up!',
 					buttons: [
 						{
@@ -289,6 +307,8 @@ export class QuestionsPage {
 					]
 				});
 				timeUpAlert.present();
+			} else {
+				this.timeTaken = this.timerVal - t;
 			}
 			// console.log(t);
 		});
@@ -302,15 +322,40 @@ export class QuestionsPage {
 		switch(this.flow) {
 			case 'savedQuestions':
 				this.globals.savedQuesNum++;
+				this.globals.totalTimeTakenSavedQues += this.timeTaken;
+				this.globals.totalNumOfSavedQues = this.questions.length;
+				this.globals.maxPossibleMarksSavedToGet += this.quesMarks;
+
+				if (this.ansIsCorrect) {
+					// Increment correct answer length 
+					this.globals.numOfCorrectSavedQuestions++;
+				}
 				break;
 			case 'savedQuestions_timeup':
 				this.globals.savedQuesNum++;
 				break;
 			case 'practiceQuestions':
 				this.globals.quesNum++;
+				this.globals.totalTimeTaken += this.timeTaken;
+				this.globals.totalNumOfQues = this.questions.length;
+				this.globals.maxPossibleMarksToGet += this.quesMarks;
+
+				if (this.ansIsCorrect) {
+					// Increment correct answer length 
+					this.globals.numOfCorrectQues++;
+				}
+				
 				break;
 			default:
 				console.log('Match Not Found');
 		}
+	}
+
+	addUserMarks() {
+		if (this.quesMarks != 0) {
+			this.globals.marks += this.quesMarks; 
+		}
+
+		// console.log('Marks => ', this.globals.marks, typeof(this.globals.marks), typeof(this.quesMarks));
 	}
 }
