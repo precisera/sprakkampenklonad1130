@@ -9,7 +9,12 @@ page-questions {
       margin:0 auto;
       margin-top:64px;
 	}
-
+	[col-4]{
+		padding:0px !important;
+	}
+	.col{
+		padding:0px !important;
+	}
 	.menu{
 		 font-family: 'Cambay-Bold';
 		 font-weight: bold;

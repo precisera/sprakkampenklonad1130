@@ -262,7 +262,7 @@ export class QuestionsPage {
 
 	startTimer() {
 		this.timer = Observable.timer(0, 1000)
-		.map(value => 5 - value)
+		.map(value => 170 - value)
 		.takeWhile(value => value >= 0)
 		.subscribe((t) => {
 			this.tick = t

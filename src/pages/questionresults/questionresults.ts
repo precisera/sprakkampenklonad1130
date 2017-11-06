@@ -22,24 +22,6 @@ import * as $ from 'jquery';
 export class QuestionresultsPage {
 
 	answerCorrect: boolean; 
-// <<<<<<< HEAD
-// 	quesOptions: any;
-
-//   constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
-//   	this.answerCorrect = this.navParams.get('correctAnsGiven');
-//   	this.quesOptions = ['En afton','Flera aftnar']
-//   }
-
-//   ionViewDidLoad() {
-//     console.log('ionViewDidLoad QuestionresultsPage');
-//   }
-
-//   goToNextQues() {
-//     /*console.log(this.globals.quesNum);
-//     console.log(this.globals.questions);*/
-//     this.navCtrl.setRoot(QuestionsPage);
-//   }
-// =======
 	quesOptions: Array<string> = [];
 	correctAns: Array<string> = [];
 	ansDesc: any;
@@ -131,6 +113,13 @@ export class QuestionresultsPage {
 			console.log(this.quesOptions);
 		}
 		
+	}
+
+	saveQuestion() {
+		// var quesToSave = this.questions[this.quesNum]['qId'];
+		// this.fireData.saveUserSelectedQuestion(quesToSave).then(() => {
+		// 	this.presentToast('Question Saved');
+		// });		
 	}
 
 }
