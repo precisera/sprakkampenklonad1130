@@ -1,0 +1,58 @@
+page-result {
+
+	ion-content{
+		background: linear-gradient(to top, #0a5c84, #1675a3);
+	}
+	.scroll-content{
+		padding: 11px !important;
+		}
+
+        .Meny {
+            width: 51px;
+            // height: 23px;
+            font-family: Cambay;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: left;
+            color: #ffffff;
+          }
+
+        .menu{
+            font-family: 'Cambay-Bold';
+            font-weight: bold;
+            font-size: 14px;
+            color: #ffffff;
+            text-align: left;
+            padding-left: 15px;
+            padding-top: 8px;
+         }
+        .Ditt-resultat {
+          
+            font-family: Cambay;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 1.5;
+            text-align: center;
+            color: #ffffff;
+         }
+        .menuicon{
+            font-size: 35px;
+            font-weight: 900;
+        }
+
+        .footerwrap{
+            max-width: 40em;
+            display:block;
+            margin:0 auto;
+        }
+
+        .Result {
+            width: 91px;
+            height: 97px;
+            text-align: center;
+            width: -moz-available;            
+            object-fit: contain;
+            // background-color: #ffffff;
+          }
+    
+}

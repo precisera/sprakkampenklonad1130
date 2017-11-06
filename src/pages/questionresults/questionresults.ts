@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { QuestionsPage } from '../questions/questions';
+import { ResultPage } from '../result/result';
+
 
 import { GlobalsProvider } from '../../providers/globals/globals';
 
@@ -51,8 +53,10 @@ export class QuestionresultsPage {
 		if (this.flow == 'savedQuestions') {
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
 				console.log('Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
-
-				var alert = this.alertCtrl.create({
+				
+				this.navCtrl.setRoot(ResultPage, {flow: this.flow});
+				
+				/*var alert = this.alertCtrl.create({
 					message: 'You have attempted all Saved Questions.',
 					buttons: [
 						{
@@ -61,7 +65,7 @@ export class QuestionresultsPage {
 						}
 					]
 				});
-				alert.present();
+				alert.present();*/
 			} else {
 				console.log('Not Equal', this.globals.savedQuestions.length, this.globals.savedQuesNum, this.flow);
 

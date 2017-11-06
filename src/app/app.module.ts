@@ -9,6 +9,7 @@ import { LevelPage } from '../pages/level/level';
 import { ListPage } from '../pages/list/list';
 import { QuestionsPage } from '../pages/questions/questions';
 import { QuestionresultsPage } from '../pages/questionresults/questionresults';
+import { ResultPage } from '../pages/result/result';
 
 import { SpelaPage } from '../pages/spela/spela';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -36,7 +37,8 @@ import { PipesModule } from '../pipes/pipes.module'
     VersusPage,
     LevelPage,
     QuestionsPage,
-    QuestionresultsPage
+    QuestionresultsPage,
+    ResultPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { PipesModule } from '../pipes/pipes.module'
     VersusPage,
     LevelPage,
     QuestionsPage,
-    QuestionresultsPage
+    QuestionresultsPage,
+    ResultPage
   ],
   providers: [
     StatusBar,
