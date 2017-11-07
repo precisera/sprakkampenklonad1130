@@ -140,20 +140,7 @@ export class QuestionresultsPage {
 		var marksGained = this.globals.marks;
 	}
 
-	/*checkFlow() {
-		switch(this.flow) {
-			case 'savedQuestions':
-				this.totalQuesNum = this.globals.savedQuesNum;
-				this.correctQues = this.globals.correctSavedQuestionsNum;
-				break;
-			case 'savedQuestions_timeup':
-				break;
-			case 'practiceQuestions':
-				this.totalQuesNum = this.globals.savedQuesNum;
-				this.correctQues = this.globals.correctSavedQuestionsNum;
-				break;
-			default:
-				console.log('Match Not Found');
-		}
-	}*/
+	giveUp() {
+		this.navCtrl.setRoot(ResultPage, {flow: this.flow});
+	}
 }

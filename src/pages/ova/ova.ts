@@ -28,7 +28,9 @@ export class OvaPage {
 	Grammatik: boolean = false;
 	Dialekt: boolean = false;
 	Stavning: boolean = false;
+	SelectAll: boolean = false;
 
+	getAllQuestions: boolean = false;
 	savedQuestionsLength;
 	savedQuestionsKeys: any = [];
 
@@ -71,6 +73,11 @@ export class OvaPage {
 		if (this.Stavning) {
 			catSelectedByUser.push('Stavning & grammatik');
 		}
+
+		if (this.getAllQuestions) {
+			catSelectedByUser = [];
+			catSelectedByUser.push('getAllQuestionsCategories');
+		}
 		this.navCtrl.push(LevelPage, {cat: catSelectedByUser});
 	}
 
@@ -99,7 +106,7 @@ export class OvaPage {
 			var savedQuestions: Array<object> = data;
 			setTimeout(() => {
 			if (data.length > 0) {				
-					this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: savedQuestions});				
+					this.navCtrl.setRoot(QuestionsPage, {from: 'savedQuestions', questions: savedQuestions, flow: 'savedQuestions'});				
 			}
 			}, 1000);
 		});
@@ -108,5 +115,28 @@ export class OvaPage {
 	reInitialiseGlobalTrackingVariables() {
 		this.globals.quesNum = 0;
 		this.globals.savedQuesNum = 0;
+	}
+
+	selectAllOptions(event) {
+		if (this.SelectAll) {
+			this.Synonymer = true;
+			this.Metaforer = true;
+			this.Grammatik = true;
+			this.Dialekt = true;
+			this.Stavning = true;
+			this.SelectAll = true;
+
+			this.getAllQuestions = true;
+		} else {
+			this.Synonymer = false;
+			this.Metaforer = false;
+			this.Grammatik = false;
+			this.Dialekt = false;
+			this.Stavning = false;
+			this.SelectAll = false;
+
+			this.getAllQuestions = false;
+		}
+		// console.log(this.SelectAll, event.value);
 	}
 }

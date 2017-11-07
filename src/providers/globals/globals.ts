@@ -27,6 +27,8 @@ export class GlobalsProvider {
 	anonymousLoggedIn: boolean = false;
 	anonymousUid: string = '';
 
+	numOfWrongQues: number = 0;
+
 	marks: number = 0;
 
 	constructor(public http: Http) {
@@ -42,6 +44,7 @@ export class GlobalsProvider {
 		this.anonymousLoggedIn = undefined;
 		this.anonymousUid = undefined;
 		this.marks = undefined;
+		this.numOfWrongQues = undefined;
 	}
 
 }

@@ -33,14 +33,19 @@ export class FireDataProvider {
 	}
 
 	getAllQuestions() {
+		var questions: Array<string> = [];
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
-			dbRef.orderByChild('Category 1').equalTo('Synonym').on('value', (data) => {
-				console.log('QUESTIONS', data.val());
+			dbRef.on('value', (data) => {
+				// console.log('QUESTIONS', data.val());
+				for (var q in data.val()) {
+					if (data.val()[q]['Question']) {
+						questions.push(data.val()[q]);
+					}					
+				}
+				resolve(questions);
+
 			})
-			/*dbRef.once('value', (data) => {
-				console.log('QUESTIONS', data.val());
-			});*/
 		});		
 	}
 
