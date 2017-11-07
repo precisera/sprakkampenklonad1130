@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalsProvider } from '../../providers/globals/globals';
 import { TimerFormatPipe } from '../../pipes/timer-format/timer-format';
 
+import { FireDataProvider } from '../../providers/fire-data/fire-data';
+
+
 
 
 /**
@@ -26,9 +29,11 @@ export class ResultPage {
 	totalTimeTaken: any;
 	totalPoints: any;
 	maxMarksPossible: any;
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider) {
 		this.flow = this.navParams.get('flow');
 		this.checkFlow();
+
+		this.saveResultDb();
 		
 	}
 
@@ -57,6 +62,15 @@ export class ResultPage {
 			default:
 				console.log('Match Not Found');
 		}
+	}
+
+	saveResultDb() {
+		console.log(this.numOfCorrectQues, this.numOfWrongQues, this.totalTimeTaken, this.totalPoints, this.maxMarksPossible);
+		this.fireData.saveResult().then((data) => {
+
+		}).catch((err) => {
+			console.log(err);
+		})
 	}
 
 }

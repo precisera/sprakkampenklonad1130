@@ -163,6 +163,12 @@ export class FireDataProvider {
 		})
 	}
 
-
-
+	saveResult() {
+		return new Promise((resolve, reject) => {			
+			this.storage.get('anonymousUid').then((data) => {
+				var dbRef = firebase.database().ref('data');
+				var result = dbRef.push();
+			});
+		});
+	}
 }
