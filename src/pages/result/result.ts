@@ -66,8 +66,16 @@ export class ResultPage {
 
 	saveResultDb() {
 		console.log(this.numOfCorrectQues, this.numOfWrongQues, this.totalTimeTaken, this.totalPoints, this.maxMarksPossible);
-		this.fireData.saveResult().then((data) => {
+		var practiceStats = {
+			numOfCorrectQues: this.numOfCorrectQues,
+			numOfWrongQues: this.numOfWrongQues,
+			totalTimeTaken: this.totalTimeTaken,
+			totalPoints: this.totalPoints,
+			maxMarksPossible: this.maxMarksPossible
+		};
 
+		this.fireData.saveResult(practiceStats).then(() => {
+			console.log('Practice Stats Saved.');
 		}).catch((err) => {
 			console.log(err);
 		})
