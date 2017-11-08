@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import { QuestionresultsPage } from '../questionresults/questionresults';
 import { YourProgressPage } from '../your-progress/your-progress';
+import { ResultPage } from '../result/result';
 
 
 import * as $ from 'jquery';
@@ -63,6 +64,7 @@ export class QuestionsPage {
 	ionViewDidLoad() {
 		this.getQuestions();
 		console.log('ionViewDidLoad QuestionsPage');
+		this.maxMarks();
 		
 	}
 
@@ -73,7 +75,7 @@ export class QuestionsPage {
 
 	showQues() {
 		//contains single question object at a time
-		console.log(this.questions);
+		// console.log(this.questions);
 		this.question = this.questions[this.quesNum]['Question'];
 		this.description = this.questions[this.quesNum]['Answer'];
 
@@ -89,28 +91,29 @@ export class QuestionsPage {
 
 		this.dispQuesNum = this.quesNum + 1;
 
-		console.log('dispQuesNum', this.dispQuesNum, 'ques length', this.questions.length);
+		// console.log('dispQuesNum', this.dispQuesNum, 'ques length', this.questions.length);
 		// this.options = this.questions[]
 	}
 
 	groupQuesOptions() {
 		for (var i = 0; i < this.questions.length; ++i) {
-			var ques: any = this.questions[i];
-			var options = [];
-			var correctAns = [];
-			for (var j = 0; j < 10; ++j) {
-				if (ques['Correct ' + j]) {
-					options.push(ques['Correct ' + j]);
-					correctAns.push(ques['Correct ' + j]);
+			console.log('Question' + i, this.questions[i]['Question']);			
+				var ques: any = this.questions[i];
+				var options = [];
+				var correctAns = [];
+				for (var j = 0; j < 10; ++j) {
+					if (ques['Correct ' + j]) {
+						options.push(ques['Correct ' + j]);
+						correctAns.push(ques['Correct ' + j]);
+					}
+
+					if (ques['Wrong ' + j]) {
+						options.push(ques['Wrong ' + j]);					
+					}
 				}
 
-				if (ques['Wrong ' + j]) {
-					options.push(ques['Wrong ' + j]);					
-				}
-			}
-
-			ques.options = options;
-			ques.correctOptions = correctAns;
+				ques.options = options;
+				ques.correctOptions = correctAns;
 		}
 	}
 
@@ -119,10 +122,10 @@ export class QuestionsPage {
 		var clickedTag = event.target.tagName;
 
 		if (clickedTag == 'P') {
-			console.log('p', domEle.parentElement.parentElement);
+			// console.log('p', domEle.parentElement.parentElement);
 			$(domEle.parentElement.parentElement).addClass('card-background-color');
 		} else if (clickedTag == 'ION-CARD-CONTENT') {
-			console.log('ion-card', domEle.parentElement);
+			// console.log('ion-card', domEle.parentElement);
 			$(domEle.parentElement).addClass('card-background-color');
 		}
 
@@ -130,22 +133,22 @@ export class QuestionsPage {
 			this.userSelectedOptions.push(option);
 		} else {
 			var eleExists = this.userSelectedOptions.includes(option);
-			console.log(eleExists);
+			// console.log(eleExists);
 			if (eleExists) {
 				//If user already selected an option, and clicks the same, then uncheck the same option
-				console.log(this.userSelectedOptions);
+				// console.log(this.userSelectedOptions);
 				_.remove(this.userSelectedOptions, (o) => {
 					return o == option;
 				});
 
 				if (clickedTag == 'P') {
-					console.log('p', domEle.parentElement.parentElement);
+					// console.log('p', domEle.parentElement.parentElement);
 					$(domEle.parentElement.parentElement).removeClass('card-background-color');
 				} else if (clickedTag == 'ION-CARD-CONTENT') {
-					console.log('ion-card', domEle.parentElement);
+					// console.log('ion-card', domEle.parentElement);
 					$(domEle.parentElement).removeClass('card-background-color');
 				}
-				console.log(this.userSelectedOptions);
+				// console.log(this.userSelectedOptions);
 
 			} else {
 				this.userSelectedOptions.push(option);
@@ -159,7 +162,7 @@ export class QuestionsPage {
 
 		var ans: any;
 		var correctAnsLength: any = 0;;
-		console.log('Selected Answers => ', this.userSelectedOptions)
+		// console.log('Selected Answers => ', this.userSelectedOptions)
 		for (var i = 0; i < this.correctOptions.length; ++i) {
 			ans = this.correctOptions[i];
 			var checkAns = this.userSelectedOptions.includes(ans);
@@ -168,12 +171,12 @@ export class QuestionsPage {
 			}
 		}
 
-		console.log('!@!', this.correctOptions.length, correctAnsLength, this.userSelectedOptions.length);
+		// console.log('!@!', this.correctOptions.length, correctAnsLength, this.userSelectedOptions.length);
 
 		
 		if (this.correctOptions.length == correctAnsLength && correctAnsLength == this.userSelectedOptions.length) {
 			this.ansIsCorrect = true;
-			console.log(this.userSelectedOptions);
+			// console.log(this.userSelectedOptions);
 			/*this.globals.quesNum++;
 			this.globals.savedQuesNum++;*/
 			this.addUserMarks();
@@ -209,18 +212,18 @@ export class QuestionsPage {
 		});
 
 		toast.onDidDismiss(() => {
-		console.log('Dismissed toast');
+		// console.log('Dismissed toast');
 		});
 
 		toast.present();
 	}
 
 	getQuestions() {
-		console.log('Cons', this.navParams.get('flow'), this.globals.savedQuesNum);
+		// console.log('Cons', this.navParams.get('flow'), this.globals.savedQuesNum);
 		this.questions = [];
 		if (this.navParams.get('from') == 'savedQuestions' || this.navParams.get('flow') == 'savedQuestions') {
-			console.log('Cons1', this.navParams.get('flow'), this.globals.savedQuesNum);
-			this.flow = 'savedQuestions';
+			// console.log('Cons1', this.navParams.get('flow'), this.globals.savedQuesNum);
+			this.flow = this.navParams.get('flow');
 			if (this.globals.savedQuesNum == 0) {
 				this.quesNum = this.globals.savedQuesNum;
 				this.questions = this.navParams.get('questions');
@@ -230,9 +233,9 @@ export class QuestionsPage {
 				this.questions = this.globals.savedQuestions;
 			}			
 			this.numOfQues = this.questions.length;
-			console.log('SavedQUES => ', this.questions);
+			// console.log('SavedQUES => ', this.questions);
 
-		} else if (this.navParams.get('flow') == 'savedQuestions_timeup') {
+		}/* else if (this.navParams.get('flow') == 'savedQuestions_timeup') {
 			this.flow = this.navParams.get('flow');
 			console.log('Cons2', this.navParams.get('flow'), this.globals.savedQuesNum);
 			console.log('!@!@!@!@!@', 'savedQuestions_timeup');
@@ -251,26 +254,26 @@ export class QuestionsPage {
 
 				/*console.log('savedQuestions_timeup   $%^$&*', this.questions);
 				this.groupQuesOptions();
-				this.showQues();*/
+				this.showQues();*
 			}
 			this.numOfQues = this.questions.length;
 
-		} else if (this.navParams.get('flow') == 'practiceQuestions') {
-			console.log('Cons3', this.navParams.get('flow'), this.globals.savedQuesNum);
+		}*/ else if (this.navParams.get('flow') == 'practiceQuestions') {
+			// console.log('Cons3', this.navParams.get('flow'), this.globals.savedQuesNum);
 			this.flow = 'practiceQuestions';
 			if (this.globals.quesNum == 0) {
-				console.log('this.globals.quesNum == 0');
+				// console.log('this.globals.quesNum == 0');
 				this.questions = this.navParams.get('questions');
-				console.log(this.questions);
+				// console.log(this.questions);
 				this.globals.questions = this.navParams.get('questions');
 				// this.globals.quesNum++;
 			}else if (this.globals.quesNum != 0) {
-				console.log('this.globals.quesNum != 0');
+				// console.log('this.globals.quesNum != 0');
 
 				this.quesNum = this.globals.quesNum;
 				this.questions = this.globals.questions;
 
-				console.log(this.globals.questions);
+				// console.log(this.globals.questions);
 				// this.globals.quesNum++;
 				
 			}
@@ -281,7 +284,7 @@ export class QuestionsPage {
 			this.groupQuesOptions();
 			this.showQues();
 
-			console.log('QUES => ', this.questions);
+			// console.log('QUES => ', this.questions);
 		}
 	}
 
@@ -292,7 +295,7 @@ export class QuestionsPage {
 		.subscribe((t) => {
 			this.tick = t
 			if (t == 0) {
-				this.globals.savedQuesNum++;
+				// this.globals.savedQuesNum++;
 				var timeUpAlert = this.alertCtrl.create({
 
 					title: 'Sorry, Times Up!',
@@ -300,7 +303,9 @@ export class QuestionsPage {
 						{
 							text: 'OK',
 							handler: () => {
-								this.navCtrl.setRoot(this.navCtrl.getActive().component, {flow: this.flow});
+								// Client wants to show result page
+								this.submitCheckAns();
+								// this.navCtrl.setRoot(this.navCtrl.getActive().component, {flow: this.flow});
 							}
 
 						}
@@ -324,38 +329,71 @@ export class QuestionsPage {
 				this.globals.savedQuesNum++;
 				this.globals.totalTimeTakenSavedQues += this.timeTaken;
 				this.globals.totalNumOfSavedQues = this.questions.length;
-				this.globals.maxPossibleMarksSavedToGet += this.quesMarks;
+				// this.globals.maxPossibleMarksSavedToGet += this.quesMarks;
 
 				if (this.ansIsCorrect) {
 					// Increment correct answer length 
 					this.globals.numOfCorrectSavedQuestions++;
+				} else {
+					this.globals.numOfWrongQues++;
 				}
 				break;
-			case 'savedQuestions_timeup':
+			/*case 'savedQuestions_timeup':
 				this.globals.savedQuesNum++;
-				break;
+				break;*/
 			case 'practiceQuestions':
 				this.globals.quesNum++;
 				this.globals.totalTimeTaken += this.timeTaken;
 				this.globals.totalNumOfQues = this.questions.length;
-				this.globals.maxPossibleMarksToGet += this.quesMarks;
+				// this.globals.maxPossibleMarksToGet += this.quesMarks;
 
 				if (this.ansIsCorrect) {
 					// Increment correct answer length 
 					this.globals.numOfCorrectQues++;
+				} else {
+					this.globals.numOfWrongQues++;
 				}
 				
 				break;
 			default:
-				console.log('Match Not Found');
+				// console.log('Match Not Found');
 		}
+	}
+
+	maxMarks() {
+		var maxMarksUserCanEarn: number = 0;
+		for (var i = 0; i < this.questions.length; ++i) {
+			if (Number(this.questions[i]['Nivå'])) {
+				maxMarksUserCanEarn += Number(this.questions[i]['Nivå']);
+			}			
+			// console.log('ques' + i, this.questions[i], 'NUMBer', Number(this.questions[i]['Nivå']));
+		}
+
+		if (this.flow == 'savedQuestions') {
+			// Max marks set according to Question Pool
+			this.globals.maxPossibleMarksSavedToGet = maxMarksUserCanEarn;
+		} else if (this.flow == 'practiceQuestions') {
+			// Max marks set according to Question Pool
+			this.globals.maxPossibleMarksToGet = maxMarksUserCanEarn;
+		}
+		
+		// console.log(maxMarksUserCanEarn);
 	}
 
 	addUserMarks() {
 		if (this.quesMarks != 0) {
 			this.globals.marks += this.quesMarks; 
 		}
-
 		// console.log('Marks => ', this.globals.marks, typeof(this.globals.marks), typeof(this.quesMarks));
+	}
+
+	giveUp() {
+		if (this.flow == 'savedQuestions') {
+			this.globals.totalTimeTakenSavedQues += this.timeTaken;
+		} else if (this.flow == 'practiceQuestions') {
+			this.globals.totalTimeTaken += this.timeTaken;
+		}
+		
+		this.navCtrl.setRoot(ResultPage, {flow: this.flow});
 	}
 }

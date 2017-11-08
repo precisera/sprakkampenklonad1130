@@ -4,6 +4,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GlobalsProvider } from '../../providers/globals/globals';
 import { TimerFormatPipe } from '../../pipes/timer-format/timer-format';
 
+import { FireDataProvider } from '../../providers/fire-data/fire-data';
+
+
 
 
 /**
@@ -26,9 +29,11 @@ export class ResultPage {
 	totalTimeTaken: any;
 	totalPoints: any;
 	maxMarksPossible: any;
-	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private globals: GlobalsProvider, public fireData: FireDataProvider) {
 		this.flow = this.navParams.get('flow');
 		this.checkFlow();
+
+		this.saveResultDb();
 		
 	}
 
@@ -40,23 +45,40 @@ export class ResultPage {
 		switch(this.flow) {
 			case 'savedQuestions':
 				this.numOfCorrectQues = this.globals.numOfCorrectSavedQuestions;
-				this.numOfWrongQues = this.globals.totalNumOfSavedQues - this.numOfCorrectQues;
+				this.numOfWrongQues = this.globals.numOfWrongQues;
 				this.totalTimeTaken = this.globals.totalTimeTakenSavedQues;
 				this.totalPoints = this.globals.marks;
 				this.maxMarksPossible = this.globals.maxPossibleMarksSavedToGet;
-				break;
-			case 'savedQuestions_timeup':
-				break;
+			break;
+			/*case 'savedQuestions_timeup':
+				break;*/
 			case 'practiceQuestions':
 				this.numOfCorrectQues = this.globals.numOfCorrectQues;	
-				this.numOfWrongQues = this.globals.totalNumOfQues - this.numOfCorrectQues;
+				this.numOfWrongQues = this.globals.numOfWrongQues;
 				this.totalTimeTaken = this.globals.totalTimeTaken;
 				this.totalPoints = this.globals.marks;
 				this.maxMarksPossible = this.globals.maxPossibleMarksToGet;
-				break;
+			break;
 			default:
 				console.log('Match Not Found');
 		}
+	}
+
+	saveResultDb() {
+		console.log(this.numOfCorrectQues, this.numOfWrongQues, this.totalTimeTaken, this.totalPoints, this.maxMarksPossible);
+		var practiceStats = {
+			numOfCorrectQues: this.numOfCorrectQues,
+			numOfWrongQues: this.numOfWrongQues,
+			totalTimeTaken: this.totalTimeTaken,
+			totalPoints: this.totalPoints,
+			maxMarksPossible: this.maxMarksPossible
+		};
+
+		this.fireData.saveResult(practiceStats).then(() => {
+			console.log('Practice Stats Saved.');
+		}).catch((err) => {
+			console.log(err);
+		})
 	}
 
 }

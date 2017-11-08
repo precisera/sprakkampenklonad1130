@@ -7,6 +7,8 @@ import { GlobalsProvider } from '../../providers/globals/globals';
 
 import { Storage } from '@ionic/storage';
 
+import * as moment from 'moment';
+
 
 /*
   Generated class for the FireDataProvider provider.
@@ -33,14 +35,19 @@ export class FireDataProvider {
 	}
 
 	getAllQuestions() {
+		var questions: Array<string> = [];
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
-			dbRef.orderByChild('Category 1').equalTo('Synonym').on('value', (data) => {
-				console.log('QUESTIONS', data.val());
+			dbRef.on('value', (data) => {
+				// console.log('QUESTIONS', data.val());
+				for (var q in data.val()) {
+					if (data.val()[q]['Question']) {
+						questions.push(data.val()[q]);
+					}					
+				}
+				resolve(questions);
+
 			})
-			/*dbRef.once('value', (data) => {
-				console.log('QUESTIONS', data.val());
-			});*/
 		});		
 	}
 
@@ -158,6 +165,21 @@ export class FireDataProvider {
 		})
 	}
 
+	saveResult(stats) {
+		var currTime = moment().format();
+		return new Promise((resolve, reject) => {			
+			this.storage.get('anonymousUid').then((data) => {
+				var dbRef = firebase.database().ref('users').child(data);
+				var result = dbRef.push();
 
-
+				result.set({
+					prevPracticeId: result.key,
+					practicedAt: currTime,
+					stats: stats
+				}, () => {
+					resolve();
+				});
+			});
+		});
+	}
 }

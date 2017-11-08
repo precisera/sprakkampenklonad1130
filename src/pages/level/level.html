@@ -23,7 +23,7 @@
                 <div>
                 <ion-item class="md-lab">
                   <ion-label><p class="md-select">Select All</p></ion-label>
-                  <ion-checkbox [(ngModel)]="SelectAll"></ion-checkbox>
+                  <ion-checkbox [(ngModel)]="SelectAll" (ionChange)="selectAllOptions($event)"></ion-checkbox>
                 
                 </ion-item>
                 
