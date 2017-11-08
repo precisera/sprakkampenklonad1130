@@ -27,7 +27,7 @@
 	<hr style="border-top: dotted 2px;position: relative;color: #328eba;margin-top: -12px;" />
 
 
-	<ion-card color="spelaColor" (click)="getSavedQuestions()">
+	<ion-card id="saved-ques-link" color="spelaColor" (click)="getSavedQuestions()">
 		<ion-card-content tappable class="md-card"> 
 			<ion-grid>
 				<ion-row align-items-center>
@@ -66,36 +66,36 @@
 			<div>
 				<ion-item class="md-lab">
 					<ion-label><p class="md-select">Välj alla</p></ion-label>
-					<ion-checkbox [(ngModel)]="SelectAll" (ionChange)="selectAllOptions($event)"></ion-checkbox>
+					<ion-checkbox [(ngModel)]="SelectAll" (ionChange)="selectAllOptions($event); checkIfAnyOptionSelected($event)"></ion-checkbox>
 				</ion-item>
 			</div>
 
 			<ion-item class="md-labs"> 
 				<ion-label > <p class="md-synonymer">Ordförståelse</p><p class="p-synonymer">du har övat denna kategorier 72 gånger</p></ion-label>
-				<ion-checkbox [(ngModel)]="Synonymer"></ion-checkbox>
+				<ion-checkbox id="check1" [(ngModel)]="Synonymer" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
 			</ion-item>
 
 
 			<ion-item style="height: 86px;background-color: #126d99;">
 				<ion-label  ><p class="md-meta">Synonymer & motsatser</p>   <p class="p-meta">du har övat denna kategorier 91 gånger</p>  </ion-label>
-				<ion-checkbox [(ngModel)]="Metaforer"></ion-checkbox>
+				<ion-checkbox id="check2" [(ngModel)]="Metaforer" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
 			</ion-item>
 
 			<ion-item style="height: 86px;background-color:#085b83;">
 				<ion-label  ><p class="md-gram">Släkt & slang</p>   <p class="p-gram">du har övat denna kategorier 91 gånger</p>  </ion-label>
-				<ion-checkbox [(ngModel)]="Grammatik"></ion-checkbox>
+				<ion-checkbox id="check3" [(ngModel)]="Grammatik" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
 			</ion-item>
 
 
 			<ion-item style="height: 86px;background-color: #044e72;">
 				<ion-label  ><p class="md-dial">Ordspråk & uttryck</p>   <p class="p-dial">du har övat denna kategorier 91 gånger</p>  </ion-label>
-				<ion-checkbox [(ngModel)]="Dialekt"></ion-checkbox>
+				<ion-checkbox id="check4" [(ngModel)]="Dialekt" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
 			</ion-item>
 
 
 			<ion-item style="height: 86px;background-color:#085b83;">
 			<ion-label  ><p class="md-gram">Stavning & grammatik</p>   <p class="p-gram">du har övat denna kategorier 91 gånger</p>  </ion-label>
-			<ion-checkbox [(ngModel)]="Stavning"></ion-checkbox>
+			<ion-checkbox id="check5" [(ngModel)]="Stavning" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
 			</ion-item>
 
 		</ion-list>
@@ -104,7 +104,7 @@
 </ion-content>
 <ion-footer padding>
 	<div class="footerwrap">
-		<button ion-button block style="  background-color: #afdc9b;width: -moz-available;
+		<button ion-button block [disabled]="!anyOptionSelected" style="background-color: #afdc9b;width: -moz-available;
 		height: 56px; " (click)="goToPractice()"> Next</button>
 	</div>
 </ion-footer>

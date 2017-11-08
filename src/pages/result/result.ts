@@ -6,6 +6,8 @@ import { TimerFormatPipe } from '../../pipes/timer-format/timer-format';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 
+import { OvaPage } from '../ova/ova';
+
 
 
 
@@ -79,6 +81,10 @@ export class ResultPage {
 		}).catch((err) => {
 			console.log(err);
 		})
+	}
+
+	goToMainMenu() {
+		this.navCtrl.setRoot(OvaPage);
 	}
 
 }

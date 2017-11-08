@@ -23,7 +23,7 @@
                 <div>
                 <ion-item class="md-lab">
                   <ion-label><p class="md-select">Select All</p></ion-label>
-                  <ion-checkbox [(ngModel)]="SelectAll" (ionChange)="selectAllOptions($event)"></ion-checkbox>
+                  <ion-checkbox [(ngModel)]="SelectAll" (ionChange)="selectAllOptions($event); checkIfAnyOptionSelected($event)"></ion-checkbox>
                 
                 </ion-item>
                 
@@ -31,7 +31,7 @@
               </div>
                 <ion-item class="md-labs"> 
                   <ion-label > <p class="md-synonymer">Nivå 1</p><p class="p-synonymer">Anpassad för barn och nybörjare.</p></ion-label>
-                  <ion-checkbox [(ngModel)]="Level1"></ion-checkbox>
+                  <ion-checkbox id="check-l-1" [(ngModel)]="Level1" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
                 
                 </ion-item>
                
@@ -40,14 +40,14 @@
                 height: 86px;
                 background-color: #126d99;">
                   <ion-label  ><p class="md-meta">Nivå 2</p>   <p class="p-meta">Lite svårare.</p>  </ion-label>
-                  <ion-checkbox [(ngModel)]="Level2"></ion-checkbox>
+                  <ion-checkbox id="check-l-2" [(ngModel)]="Level2" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
                 </ion-item>
 
                 <ion-item style="   
                 height: 86px;
                 background-color:#085b83;">
                   <ion-label  ><p class="md-gram">Nivå 3</p>   <p class="p-gram">Ovanliga & kluriga ord och uttryck.</p>  </ion-label>
-                  <ion-checkbox [(ngModel)]="Level3"></ion-checkbox>
+                  <ion-checkbox id="check-l-3" [(ngModel)]="Level3" (ionChange)="checkIfAnyOptionSelected($event)"></ion-checkbox>
                 </ion-item>
                 
                
@@ -59,7 +59,7 @@
 </ion-content>
 <ion-footer padding>
   <div class="footerwrap">
-   <button ion-button block style="  background-color: #afdc9b;width: -moz-available;
+   <button ion-button block [disabled]="!anyOptionSelected" style="background-color: #afdc9b;width: -moz-available;
             height: 56px; " (click)="goToPractice()">Start!</button>
           </div>
 </ion-footer>

@@ -7,8 +7,7 @@ import { QuestionsPage } from '../questions/questions';
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 import { GlobalsProvider } from '../../providers/globals/globals';
 
-
-
+import * as $ from 'jquery';
 
 /**
  * Generated class for the ÖvaPage page.
@@ -34,18 +33,20 @@ export class OvaPage {
 	savedQuestionsLength;
 	savedQuestionsKeys: any = [];
 
+	anyOptionSelected: boolean = false;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl :LoadingController, private globals: GlobalsProvider) {
 		
 	}
 
 	ionViewWillEnter() {
 		this.getSavedQuestionsKeys();
+		this.reInitialiseGlobalTrackingVariables();
 	}
 
 	ionViewDidLoad() {
 		console.log('!@!@!@!@!@!@');
-		console.log('ionViewDidLoad ÖvaPage');
-		this.reInitialiseGlobalTrackingVariables();
+		console.log('ionViewDidLoad ÖvaPage');		
 	}
 
 	checkNg() {
@@ -95,6 +96,7 @@ export class OvaPage {
 					this.savedQuestionsKeys.push(data[i]);
 				}
 				this.savedQuestionsLength = this.savedQuestionsKeys.length;
+				this.globals.savedQuestionsKeys = this.savedQuestionsKeys;
 			}
 			loader.dismiss();
 			
@@ -102,6 +104,7 @@ export class OvaPage {
 	}
 
 	getSavedQuestions() {
+		$('#saved-ques-link').css('pointer-events', 'none');
 		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data: any) => {
 			var savedQuestions: Array<object> = data;
 			setTimeout(() => {
@@ -115,6 +118,7 @@ export class OvaPage {
 	reInitialiseGlobalTrackingVariables() {
 		this.globals.quesNum = 0;
 		this.globals.savedQuesNum = 0;
+		this.globals.marks = 0;
 	}
 
 	selectAllOptions(event) {
@@ -127,6 +131,7 @@ export class OvaPage {
 			this.SelectAll = true;
 
 			this.getAllQuestions = true;
+			$('#check1, #check2, #check3, #check4, #check5').css('pointer-events', 'none');
 		} else {
 			this.Synonymer = false;
 			this.Metaforer = false;
@@ -136,7 +141,25 @@ export class OvaPage {
 			this.SelectAll = false;
 
 			this.getAllQuestions = false;
+			$('#check1, #check2, #check3, #check4, #check5').css('pointer-events', 'auto');
 		}
 		// console.log(this.SelectAll, event.value);
+	}
+
+	checkIfAnyOptionSelected(event) {
+		var optionChecked = event.value;
+		// console.log(optionChecked);
+		if (optionChecked) {
+			if (this.Synonymer || this.Metaforer || this.Grammatik || this.Dialekt || this.Stavning || this.SelectAll) {
+				this.anyOptionSelected = true;
+				console.log('Option is selecetd');
+			}			
+		} else {
+			if (!this.Synonymer && !this.Metaforer && !this.Grammatik && !this.Dialekt && !this.Stavning && !this.SelectAll) {
+				this.anyOptionSelected = false;
+				console.log('Option is selecetd');
+			}	
+		}
+		
 	}
 }

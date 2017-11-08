@@ -19,6 +19,7 @@ export class GlobalsProvider {
 
 	savedQuesNum: any = 0;
 	savedQuestions: Array<string> = [];
+	savedQuestionsKeys: Array<string> = [];
 	numOfCorrectSavedQuestions: number = 0;
 	totalTimeTakenSavedQues: number = 0;
 	totalNumOfSavedQues: number = 0;
