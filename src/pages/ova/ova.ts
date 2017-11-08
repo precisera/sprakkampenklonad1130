@@ -119,6 +119,7 @@ export class OvaPage {
 		this.globals.quesNum = 0;
 		this.globals.savedQuesNum = 0;
 		this.globals.marks = 0;
+		this.globals.numOfWrongQues = 0;
 	}
 
 	selectAllOptions(event) {
