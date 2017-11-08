@@ -9,6 +9,8 @@ import { Storage } from '@ionic/storage';
 
 import * as moment from 'moment';
 
+import * as shuffle from 'shuffle-array';
+
 
 /*
   Generated class for the FireDataProvider provider.
@@ -45,6 +47,7 @@ export class FireDataProvider {
 						questions.push(data.val()[q]);
 					}					
 				}
+				shuffle(questions);
 				resolve(questions);
 
 			})
@@ -90,6 +93,7 @@ export class FireDataProvider {
 						}
 						console.log(i, categories.length)
 						if (i+1 == categories.length) {
+							shuffle(questions);
 							resolve(questions);	
 							// console.log('On firedata', questions);
 						}
