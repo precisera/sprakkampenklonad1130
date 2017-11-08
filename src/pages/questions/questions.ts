@@ -295,9 +295,9 @@ export class QuestionsPage {
 		.subscribe((t) => {
 			this.tick = t
 			if (t == 0) {
+				this.submitCheckAns();
 				// this.globals.savedQuesNum++;
-				var timeUpAlert = this.alertCtrl.create({
-
+				/*var timeUpAlert = this.alertCtrl.create({
 					title: 'Sorry, Times Up!',
 					buttons: [
 						{
@@ -311,7 +311,7 @@ export class QuestionsPage {
 						}
 					]
 				});
-				timeUpAlert.present();
+				timeUpAlert.present();*/
 			} else {
 				this.timeTaken = this.timerVal - t;
 			}
