@@ -135,9 +135,23 @@ export class QuestionresultsPage {
 
 	saveQuestion() {
 		var quesToSave = this.presentQuesId;
-		this.fireData.saveUserSelectedQuestion(quesToSave).then(() => {
-			this.presentToast('Question Saved');
-		});	
+		var savedQuesKeys: any = this.globals.savedQuestionsKeys;
+
+		for (var i = 0; i < savedQuesKeys.length; ++i) {
+			// console.log(quesToSave, savedQuesKeys[i]);
+			if (savedQuesKeys[i]['qId'] == quesToSave) {
+				this.presentToast('Question already saved.');
+				break;
+			} else {
+				this.fireData.saveUserSelectedQuestion(quesToSave).then(() => {
+					this.presentToast('Question Saved');
+				});
+				break;
+			}
+			
+		}
+
+		
 
 		// console.log(this.presentQuesId);
 	}
@@ -150,6 +164,7 @@ export class QuestionresultsPage {
 		});
 
 		toast.onDidDismiss(() => {
+			// console.log(this.globals.savedQuestionsKeys);
 		// console.log('Dismissed toast');
 		});
 

@@ -33,6 +33,8 @@ export class OvaPage {
 	savedQuestionsLength;
 	savedQuestionsKeys: any = [];
 
+	anyOptionSelected: boolean = false;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl :LoadingController, private globals: GlobalsProvider) {
 		
 	}
@@ -44,8 +46,7 @@ export class OvaPage {
 
 	ionViewDidLoad() {
 		console.log('!@!@!@!@!@!@');
-		console.log('ionViewDidLoad ÖvaPage');
-		
+		console.log('ionViewDidLoad ÖvaPage');		
 	}
 
 	checkNg() {
@@ -95,6 +96,7 @@ export class OvaPage {
 					this.savedQuestionsKeys.push(data[i]);
 				}
 				this.savedQuestionsLength = this.savedQuestionsKeys.length;
+				this.globals.savedQuestionsKeys = this.savedQuestionsKeys;
 			}
 			loader.dismiss();
 			
@@ -129,6 +131,7 @@ export class OvaPage {
 			this.SelectAll = true;
 
 			this.getAllQuestions = true;
+			$('#check1, #check2, #check3, #check4, #check5').css('pointer-events', 'none');
 		} else {
 			this.Synonymer = false;
 			this.Metaforer = false;
@@ -138,7 +141,25 @@ export class OvaPage {
 			this.SelectAll = false;
 
 			this.getAllQuestions = false;
+			$('#check1, #check2, #check3, #check4, #check5').css('pointer-events', 'auto');
 		}
 		// console.log(this.SelectAll, event.value);
+	}
+
+	checkIfAnyOptionSelected(event) {
+		var optionChecked = event.value;
+		// console.log(optionChecked);
+		if (optionChecked) {
+			if (this.Synonymer || this.Metaforer || this.Grammatik || this.Dialekt || this.Stavning || this.SelectAll) {
+				this.anyOptionSelected = true;
+				console.log('Option is selecetd');
+			}			
+		} else {
+			if (!this.Synonymer && !this.Metaforer && !this.Grammatik && !this.Dialekt && !this.Stavning && !this.SelectAll) {
+				this.anyOptionSelected = false;
+				console.log('Option is selecetd');
+			}	
+		}
+		
 	}
 }

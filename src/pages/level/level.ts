@@ -4,7 +4,7 @@ import { QuestionsPage } from '../questions/questions';
 
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 
-
+import * as $ from 'jquery';
 
 /**
  * Generated class for the LevelPage page.
@@ -28,6 +28,9 @@ export class LevelPage {
 	selectedCategories = [];
 	selectedLevels = [];
 	userSelection: any = {};
+
+	anyOptionSelected: boolean = false;
+
 	constructor(public navCtrl: NavController, public navParams: NavParams, public fireData: FireDataProvider, public loadingCtrl: LoadingController) {
 		this.selectedCategories = this.navParams.get('cat');
 		console.log(this.selectedCategories);
@@ -89,13 +92,30 @@ export class LevelPage {
 			this.Level3 = true;
 
 			this.getAllQuestions = true;
+			$('#check-l-1, #check-l-2, #check-l-3').css('pointer-events', 'none');
 		} else {
 			this.Level1 = false;
 			this.Level2 = false;
 			this.Level3 = false;
 
 			this.getAllQuestions = false;
+			$('#check-l-1, #check-l-2, #check-l-3').css('pointer-events', 'auto');
 		}
 	}
 
+	checkIfAnyOptionSelected(event) {
+		var optionChecked = event.value;
+		// console.log(optionChecked);
+		if (optionChecked) {
+			if (this.Level1 || this.Level2 || this.Level3 || this.SelectAll) {
+				this.anyOptionSelected = true;
+				console.log('Option is selecetd');
+			}			
+		} else {
+			if (!this.Level1 && !this.Level2 && !this.Level3 && !this.SelectAll) {
+				this.anyOptionSelected = false;
+				console.log('Option is selecetd');
+			}	
+		}		
+	}
 }
