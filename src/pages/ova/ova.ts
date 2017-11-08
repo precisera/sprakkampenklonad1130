@@ -7,8 +7,7 @@ import { QuestionsPage } from '../questions/questions';
 import { FireDataProvider } from '../../providers/fire-data/fire-data';
 import { GlobalsProvider } from '../../providers/globals/globals';
 
-
-
+import * as $ from 'jquery';
 
 /**
  * Generated class for the ÖvaPage page.
@@ -40,12 +39,13 @@ export class OvaPage {
 
 	ionViewWillEnter() {
 		this.getSavedQuestionsKeys();
+		this.reInitialiseGlobalTrackingVariables();
 	}
 
 	ionViewDidLoad() {
 		console.log('!@!@!@!@!@!@');
 		console.log('ionViewDidLoad ÖvaPage');
-		this.reInitialiseGlobalTrackingVariables();
+		
 	}
 
 	checkNg() {
@@ -102,6 +102,7 @@ export class OvaPage {
 	}
 
 	getSavedQuestions() {
+		$('#saved-ques-link').css('pointer-events', 'none');
 		this.fireData.getUserSelectedQuestion(this.savedQuestionsKeys).then((data: any) => {
 			var savedQuestions: Array<object> = data;
 			setTimeout(() => {
@@ -115,6 +116,7 @@ export class OvaPage {
 	reInitialiseGlobalTrackingVariables() {
 		this.globals.quesNum = 0;
 		this.globals.savedQuesNum = 0;
+		this.globals.marks = 0;
 	}
 
 	selectAllOptions(event) {

@@ -32,6 +32,7 @@ export class QuestionsPage {
 	question: any;
 	description: any;
 	options: Array<string> = [];
+	qId: string = '';
 
 	quesNum: number = 0;
 	dispQuesNum: number = 0;
@@ -78,6 +79,9 @@ export class QuestionsPage {
 		// console.log(this.questions);
 		this.question = this.questions[this.quesNum]['Question'];
 		this.description = this.questions[this.quesNum]['Answer'];
+		this.qId = this.questions[this.quesNum]['qId'];
+
+		// console.log('Current ', this.questions[this.quesNum], this.questions[this.quesNum]['qId']);
 
 		this.quesLevel = this.questions[this.quesNum]['Nivå'];
 		this.quesMarks = Number(this.questions[this.quesNum]['Nivå']);
@@ -184,7 +188,7 @@ export class QuestionsPage {
 			// Ans may be right or wrong, not care, increment is necessary
 			this.checkFlow();			
 
-			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks});
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: true, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks, currQuesId: this.qId});
 		} else {
 			/*this.globals.quesNum++;
 			this.globals.savedQuesNum++;*/
@@ -193,7 +197,7 @@ export class QuestionsPage {
 
 			this.checkFlow();
 
-			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks});
+			this.navCtrl.setRoot(QuestionresultsPage, {correctAnsGiven: false, options: this.quesOptions, correctAns: this.correctOptions, ansDesc: this.description, flow: this.flow, timeTaken: this.timeTaken, thisQuesMarks: this.quesMarks, currQuesId: this.qId});
 		}		
 	}
 
