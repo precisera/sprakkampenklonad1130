@@ -36,15 +36,26 @@ export class FireDataProvider {
 		});		
 	}
 
-	getAllQuestions() {
+	getAllQuestions(type) {
 		var questions: Array<string> = [];
+		var quesType: string = type;
 		return new Promise((resolve, reject) => {
 			var dbRef = firebase.database().ref('questions');
 			dbRef.on('value', (data) => {
 				// console.log('QUESTIONS', data.val());
 				for (var q in data.val()) {
 					if (data.val()[q]['Question']) {
-						questions.push(data.val()[q]);
+						// console.log('has questions');
+						if (quesType == 'hasWeeks') {
+							// console.log('has weeks');
+							if (data.val()[q]['Veckokampen']) {
+								// console.log(q, typeof(data.val()[q]['Veckokampen']));
+								questions.push(data.val()[q]);
+							}							
+						} else if (quesType == 'allQuestions') {
+							// console.log('all questions');
+							questions.push(data.val()[q]);
+						}
 					}					
 				}
 				shuffle(questions);

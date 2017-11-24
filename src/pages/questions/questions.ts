@@ -282,6 +282,17 @@ export class QuestionsPage {
 				
 			}
 			this.numOfQues = this.questions.length;
+		} else if (this.navParams.get('flow') == 'veckokampen') {
+			this.flow = this.navParams.get('flow');
+			if (this.globals.savedQuesNum == 0) {
+				this.quesNum = this.globals.savedQuesNum;
+				this.questions = this.navParams.get('questions');
+				this.globals.savedQuestions = this.navParams.get('questions');
+			} else if (this.globals.savedQuesNum != 0) {
+				this.quesNum = this.globals.savedQuesNum;
+				this.questions = this.globals.savedQuestions;
+			}			
+			this.numOfQues = this.questions.length;
 		}
 
 		if (this.questions) {

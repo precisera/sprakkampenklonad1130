@@ -72,7 +72,7 @@ export class LevelPage {
 		loading.present();
 		if (this.userSelection.cat == 'getAllQuestionsCategories' && this.userSelection.lev == 'getAllQuestionsLevels') {
 			console.log(this.userSelection.cat, this.userSelection.lev);
-			this.fireData.getAllQuestions().then((data) => {
+			this.fireData.getAllQuestions('allQuestions').then((data) => {
 				loading.dismiss();
 				this.navCtrl.setRoot(QuestionsPage, {questions: data, flow: 'practiceQuestions'});
 			});
