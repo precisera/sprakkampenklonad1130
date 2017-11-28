@@ -1,18 +1,17 @@
 
 Sprakkampen App
 
-## How to use ionic
+## How to run your app locally
 
 $ sudo npm install -g ionic cordova
-$ ionic start myApp
+$ git init
+$ git clone https://github.com/divyanshuchat/SprakkampenApp.git
+
 ```
 
-Then, to run it, cd into `mySideMenu` and run:
+Then, to run it, cd into `SprakkampenApp` and run:
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+$ ionic serve
+
 ```
-
-Substitute ios for android if not on a Mac.
 
