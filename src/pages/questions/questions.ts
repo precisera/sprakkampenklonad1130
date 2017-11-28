@@ -101,7 +101,7 @@ export class QuestionsPage {
 
 	groupQuesOptions() {
 		for (var i = 0; i < this.questions.length; ++i) {
-			console.log('Question' + i, this.questions[i]['Question']);			
+			// console.log('Question' + i, this.questions[i]['Question']);			
 				var ques: any = this.questions[i];
 				var options = [];
 				var correctAns = [];
@@ -241,8 +241,8 @@ export class QuestionsPage {
 
 		}/* else if (this.navParams.get('flow') == 'savedQuestions_timeup') {
 			this.flow = this.navParams.get('flow');
-			console.log('Cons2', this.navParams.get('flow'), this.globals.savedQuesNum);
-			console.log('!@!@!@!@!@', 'savedQuestions_timeup');
+			// console.log('Cons2', this.navParams.get('flow'), this.globals.savedQuesNum);
+			// console.log('!@!@!@!@!@', 'savedQuestions_timeup');
 			if (this.globals.savedQuestions.length == this.globals.savedQuesNum) {
 				console.log('End Reached');
 				this.navCtrl.setRoot(YourProgressPage);
