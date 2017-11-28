@@ -4,7 +4,9 @@ Sprakkampen App
 ## How to run your app locally
 
 $ sudo npm install -g ionic cordova
+
 $ git init
+
 $ git clone https://github.com/divyanshuchat/SprakkampenApp.git
 
 ```
